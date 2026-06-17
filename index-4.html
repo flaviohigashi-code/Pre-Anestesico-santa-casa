@@ -1,0 +1,6019 @@
+<!DOCTYPE html>
+
+
+
+<html lang="pt-BR">
+
+
+
+<head>
+
+
+
+    <meta charset="UTF-8">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Avaliação Pré Anestésica - AnestheMed</title>
+
+
+
+    <style>
+
+
+
+        @page { 
+
+
+
+            size: A4; 
+
+
+
+            margin: 2mm 4mm; 
+
+
+
+        }
+
+
+
+        body {
+
+
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+
+            background-color: #f0f0f0;
+
+
+
+            margin: 0;
+
+
+
+            padding: 0;
+
+
+
+            font-size: 11px;
+
+
+
+            line-height: 1.1;
+
+
+
+            -webkit-print-color-adjust: exact;
+
+
+
+            print-color-adjust: exact;
+
+
+
+        }
+
+
+
+        .container {
+
+
+
+            background-color: #fff;
+
+
+
+            max-width: 800px;
+
+
+
+            margin: 0 auto;
+
+
+
+            padding: 2px 6px;
+
+
+
+            border: 1px solid #ccc;
+
+
+
+            box-sizing: border-box;
+
+
+
+        }
+
+
+
+        .header {
+
+
+
+            display: flex;
+
+
+
+            justify-content: space-between;
+
+
+
+            align-items: center;
+
+
+
+            border-bottom: 2px solid #000;
+
+
+
+            padding-bottom: 1px;
+
+
+
+            margin-bottom: 1px;
+
+
+
+        }
+
+
+
+        .header-logo img { display: block; max-width: 155px; height: auto; }
+
+
+
+        .header-title h2 { margin: 0; font-size: 14px; letter-spacing: 0.5px; }
+
+
+
+        .header-contact { text-align: right; font-weight: bold; line-height: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+
+
+
+        .header-contact .logo-inovare-header { display: block; max-height: 42px; width: auto; object-fit: contain; }
+
+
+
+        .header-contact .phone-num { font-size: 9px; display: block; }
+
+
+
+
+
+
+
+        .section { border: 1px solid #000; margin-bottom: 2px; padding: 1px 2px; position: relative; }
+
+
+
+        .section-title {
+
+
+
+            background-color: #f2f2f2;
+
+
+
+            font-weight: bold;
+
+
+
+            padding: 1px 2px;
+
+
+
+            border-bottom: 1px solid #000;
+
+
+
+            margin: -1px -2px 1px -2px;
+
+
+
+            text-align: center;
+
+
+
+            text-transform: uppercase;
+
+
+
+            font-size: 9.5px;
+
+
+
+        }
+
+
+
+        
+
+
+
+        .disease-title-container {
+
+
+
+            background-color: #f2f2f2;
+
+
+
+            border-bottom: 1px solid #000;
+
+
+
+            margin: -1px -2px 1px -2px;
+
+
+
+            padding: 1px 4px;
+
+
+
+            display: flex;
+
+
+
+            justify-content: space-between;
+
+
+
+            align-items: center;
+
+
+
+        }
+
+
+
+        .disease-title-text {
+
+
+
+            font-weight: bold;
+
+
+
+            text-transform: uppercase;
+
+
+
+            font-size: 9.5px;
+
+
+
+            flex-grow: 1;
+
+
+
+            text-align: center;
+
+
+
+            margin-left: 100px;
+
+
+
+        }
+
+
+
+        .btn-uncheck-no {
+
+
+
+            background-color: #78909c;
+
+
+
+            color: white;
+
+
+
+            border: none;
+
+
+
+            border-radius: 3px;
+
+
+
+            padding: 1px 5px;
+
+
+
+            font-size: 8.5px;
+
+
+
+            font-weight: bold;
+
+
+
+            cursor: pointer;
+
+
+
+            text-transform: uppercase;
+
+
+
+            line-height: 1.2;
+
+
+
+        }
+
+
+
+        .btn-uncheck-no:hover {
+
+
+
+            background-color: #546e7a;
+
+
+
+        }
+
+
+
+
+
+
+
+        .row { display: flex; flex-wrap: wrap; margin-bottom: 1px; align-items: center; }
+
+
+
+        .form-group { display: flex; align-items: center; margin-bottom: 0px; }
+
+
+
+        .form-group label { margin-right: 3px; white-space: nowrap; font-weight: bold; }
+
+
+
+        
+
+
+
+        input[type="text"], input[type="number"], textarea {
+
+
+
+            border: none;
+
+
+
+            border-bottom: 1px solid #777;
+
+
+
+            flex-grow: 1;
+
+
+
+            padding: 0px 1px;
+
+
+
+            background: transparent;
+
+
+
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+
+            font-size: 12px;
+
+
+
+            font-weight: 800 !important;
+
+
+
+            color: #000;
+
+
+
+            line-height: 1;
+
+
+
+        }
+
+
+
+
+
+
+
+        #cpf_paciente::placeholder {
+
+
+
+            font-size: 9px;
+
+
+
+            font-weight: normal;
+
+
+
+            color: #888;
+
+
+
+            opacity: 1;
+
+
+
+        }
+
+
+
+        #cpf_paciente {
+
+
+
+            letter-spacing: 1px;
+
+
+
+        }
+
+
+
+
+
+
+
+        input[type="radio"], input[type="checkbox"] { display: none; }
+
+
+
+        
+
+
+
+        .btn-check {
+
+
+
+            display: inline-block;
+
+
+
+            width: 10px;
+
+
+
+            height: 10px;
+
+
+
+            border: 1.5px solid #000;
+
+
+
+            margin-right: 2px;
+
+
+
+            text-align: center;
+
+
+
+            cursor: pointer;
+
+
+
+            user-select: none;
+
+
+
+            background: transparent;
+
+
+
+            vertical-align: middle;
+
+
+
+            position: relative;
+
+
+
+        }
+
+
+
+
+
+
+
+        input[type="radio"]:checked + .btn-check::after,
+
+
+
+        input[type="checkbox"]:checked + .btn-check::after {
+
+
+
+            content: "✔";
+
+
+
+            font-family: 'Arial Black', Gadget, sans-serif;
+
+
+
+            font-weight: 900 !important;
+
+
+
+            font-size: 10px;
+
+
+
+            position: absolute;
+
+
+
+            top: 50%;
+
+
+
+            left: 50%;
+
+
+
+            transform: translate(-50%, -50%);
+
+
+
+            display: block;
+
+
+
+            color: #000;
+
+
+
+        }
+
+
+
+
+
+
+
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0px 4px; }
+
+
+
+        .sn-header { display: flex; font-weight: bold; font-size: 9px; margin-bottom: 0px; }
+
+
+
+        .sn-header span { width: 14px; text-align: center; margin-right: 1px; }
+
+
+
+        
+
+
+
+        .med-com-split { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 6px; }
+
+
+
+        .comentarios-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 4px; }
+
+
+
+        .comentario-item { display: flex; align-items: flex-start; border-bottom: 1px solid #ccc; margin-bottom: 0px; min-height: 16px; height: auto; }
+
+
+
+        .com_mirror { display: none; }
+
+        textarea.com_input {
+
+
+
+            resize: none;
+
+
+
+            overflow: hidden;
+
+
+
+            width: 100%;
+
+
+
+            padding: 0px 1px;
+
+
+
+            border: none;
+
+
+
+            background: transparent;
+
+
+
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+
+            font-size: 12px;
+
+
+
+            font-weight: 800;
+
+
+
+            color: #000;
+
+
+
+            line-height: 1.3;
+
+
+
+            display: block;
+
+
+
+            box-sizing: border-box;
+
+
+
+            word-break: break-word;
+
+
+
+            white-space: pre-wrap;
+
+
+
+        }
+
+
+
+        
+
+
+
+        .med-list-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 4px; }
+
+
+
+        .med-item { display: flex; align-items: center; border-bottom: 1px solid #ccc; margin-bottom: 0px; position: relative; }
+
+
+
+        .med-item span { font-size: 9px; font-weight: bold; margin-right: 2px; width: 12px; }
+
+
+
+
+
+
+
+        /* Estilização customizada para a linha do jejum */
+
+
+
+        .jejum-container {
+
+
+
+            display: flex;
+
+
+
+            flex-direction: column;
+
+
+
+            gap: 4px;
+
+
+
+            width: 100%;
+
+
+
+        }
+
+
+
+        .jejum-opcoes {
+
+
+
+            display: flex;
+
+
+
+            gap: 15px;
+
+
+
+            font-weight: bold;
+
+
+
+            font-size: 10.5px;
+
+
+
+            border-bottom: 1px dashed #ccc;
+
+
+
+            padding-bottom: 3px;
+
+
+
+        }
+
+
+
+        .jejum-opcoes label {
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            cursor: pointer;
+
+
+
+        }
+
+
+
+        .jejum-input-wrapper {
+
+
+
+            position: relative;
+
+
+
+            width: 100%;
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            min-height: 26px;
+
+
+
+        }
+
+
+
+        
+
+
+
+        /* Div espelho que fica por trás do input para aplicar o negrito estilizado */
+
+
+
+        .jejum-mirror {
+
+
+
+            position: absolute;
+
+
+
+            left: 1px;
+
+
+
+            top: 0;
+
+
+
+            right: 1px;
+
+
+
+            bottom: 0;
+
+
+
+            font-size: 11px;
+
+
+
+            font-weight: normal;
+
+
+
+            color: #000;
+
+
+
+            white-space: nowrap;
+
+
+
+            overflow: hidden;
+
+
+
+            pointer-events: none;
+
+
+
+            background: transparent;
+
+
+
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+
+            line-height: 1.6;
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+        }
+
+
+
+        .jejum-mirror .highlight-jejum {
+
+
+
+            font-weight: 900 !important;
+
+
+
+            font-size: 15px;
+
+
+
+            letter-spacing: 0.5px;
+
+
+
+            color: #000;
+
+
+
+        }
+
+
+
+        .jejum-mirror .highlight-numero {
+
+
+
+            font-weight: 900 !important;
+
+
+
+            font-size: 15px;
+
+
+
+            letter-spacing: 0.5px;
+
+
+
+            color: #000;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Input transparente que recebe a digitação real */
+
+
+
+        #linha_jejum_completa {
+
+
+
+            width: 100%;
+
+
+
+            font-size: 11px;
+
+
+
+            font-weight: normal !important;
+
+
+
+            border: none;
+
+
+
+            border-bottom: 1px solid #555;
+
+
+
+            color: transparent; /* Oculta o texto real do input */
+
+
+
+            caret-color: #000;  /* Mantém o cursor visível */
+
+
+
+            background: transparent;
+
+
+
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+
+        }
+
+
+
+        /* Quando focado ou impresso, garante legibilidade e sincronia */
+
+
+
+        #linha_jejum_completa:focus {
+
+
+
+            color: transparent;
+
+
+
+        }
+
+
+
+
+
+
+
+        .autocomplete-carimbo-items {
+
+
+
+            position: absolute;
+
+
+
+            border: 1px solid #ccc;
+
+
+
+            background-color: #fff;
+
+
+
+            z-index: 99;
+
+
+
+            bottom: 100%;
+
+
+
+            left: 0;
+
+
+
+            right: 0;
+
+
+
+            max-height: 140px;
+
+
+
+            overflow-y: auto;
+
+
+
+            box-shadow: 0px -2px 4px rgba(0,0,0,0.2);
+
+
+
+            border-radius: 4px;
+
+
+
+        }
+
+
+
+        .autocomplete-carimbo-items div { padding: 5px; cursor: pointer; font-size: 11px; font-weight: normal; color: #333; text-align: left; }
+
+
+
+        .autocomplete-carimbo-items div:hover { background-color: #e1f5fe !important; color: #000 !important; font-weight: bold; }
+
+
+
+
+
+
+
+        .container-carimbo-flutuante { position: relative; width: 100%; height: 0px; }
+
+
+
+
+
+
+
+        #o-carimbo {
+
+
+
+            display: none; 
+
+
+
+            border: 4px solid #0f2a4a; 
+
+
+
+            color: #0f2a4a; 
+
+
+
+            opacity: 0.62; 
+
+
+
+            padding: 4px 6px; 
+
+
+
+            border-radius: 4px; 
+
+
+
+            font-family: 'Courier New', monospace; 
+
+
+
+            font-weight: bold; 
+
+
+
+            text-transform: uppercase; 
+
+
+
+            width: 230px; 
+
+
+
+            box-sizing: border-box; 
+
+
+
+            position: absolute;
+
+
+
+            bottom: -5px; 
+
+
+
+            left: 50%;
+
+
+
+            transform: translate(-50%, 0) rotate(-1deg);
+
+
+
+            background-color: rgba(255, 255, 255, 0.95);
+
+
+
+            pointer-events: none;
+
+
+
+            z-index: 10;
+
+
+
+            text-align: center;
+
+
+
+        }
+
+
+
+
+
+
+
+        .carimbo-linha-inferior { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 2px; }
+
+
+
+        .mini-logo-real-carimbo {
+
+
+
+            display: inline-block;
+
+
+
+            height: 34px;
+
+
+
+            width: auto;
+
+
+
+            object-fit: contain;
+
+
+
+            vertical-align: middle;
+
+
+
+            filter: brightness(0) sepia(1) hue-rotate(190deg) saturate(8) brightness(0.35);
+
+
+
+        }
+
+
+
+
+
+
+
+        #texto-seguranca-anestesista {
+
+
+
+            display: block;
+
+
+
+            font-size: 9px;
+
+
+
+            font-weight: bold;
+
+
+
+            color: #333;
+
+
+
+            margin-top: 2px;
+
+
+
+            min-height: 11px;
+
+
+
+            text-transform: uppercase;
+
+
+
+        }
+
+
+
+
+
+
+
+        .assinatura-container { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 35px; gap: 15px; }
+
+
+
+        .assinatura-box { text-align: center; font-weight: bold; }
+
+
+
+
+
+
+
+        #wrapper-busca-anestesista { margin-top: 4px; position: relative; width: 100%; }
+
+
+
+        #wrapper-busca-anestesista input {
+
+
+
+            width: 100%;
+
+
+
+            border: none;
+
+
+
+            border-bottom: 1px solid #777;
+
+
+
+            padding: 2px 1px;
+
+
+
+            box-sizing: border-box;
+
+
+
+            font-size: 11px;
+
+
+
+            background-color: transparent;
+
+
+
+            font-weight: bold;
+
+
+
+        }
+
+
+
+
+
+
+
+        .controle-carimbo-box {
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            justify-content: center;
+
+
+
+            margin-top: 5px;
+
+
+
+            font-size: 10px;
+
+
+
+            font-weight: bold;
+
+
+
+            color: #555;
+
+
+
+        }
+
+
+
+
+
+
+
+        #documento p { margin: 3px 0; line-height: 1.35; font-size: 11pt; }
+  #documento h2 { margin: 0 0 8px 0 !important; }
+  #documento { padding: 30px 45px; font-size: 11pt; }
+
+  @media print {
+
+
+
+            body { background-color: #fff; padding: 0; margin: 0; }
+
+
+
+            .container { 
+
+
+
+                border: none; 
+
+
+
+                box-shadow: none; 
+
+
+
+                width: 100%; 
+
+
+
+                padding: 0; 
+
+
+
+                margin: 0;
+
+
+
+                transform: scale(0.90);
+
+
+
+                transform-origin: top center;
+
+
+
+                position: relative;
+
+
+
+            }
+
+
+
+            .buttons, .buttons-docs, .autocomplete-items, .autocomplete-carimbo-items, #wrapper-busca-anestesista, .controle-carimbo-box, .btn-uncheck-no, .jejum-opcoes { display: none !important; }
+
+
+
+            .disease-title-text { margin-left: 0 !important; }
+
+
+
+            input[type="text"], input[type="number"], textarea { border-bottom: 1px solid #000; }
+
+
+
+            #linha_jejum_completa { display: none !important; }
+
+            #jejum_personalizado_texto { display: none !important; }
+            #jejum_personalizado_mirror { display: block !important; }
+
+
+
+            html, body { height: 99%; overflow: hidden; page-break-inside: avoid; }
+
+
+
+            .assinatura-container { margin-top: 30px; }
+
+
+
+            #o-carimbo { bottom: -5px !important; }
+
+            #marca-dagua-inovare {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                display: flex !important;
+                z-index: 9999 !important;
+                pointer-events: none !important;
+            }
+
+
+
+
+
+
+
+            /* Jejum: destaque total na impressão */
+
+
+
+            .jejum-section-print {
+
+
+
+                background-color: #e0e0e0 !important;
+
+
+
+                border: 2.5px solid #111 !important;
+
+
+
+                padding: 4px 6px !important;
+
+
+
+            }
+
+
+
+            .jejum-titulo-print {
+
+
+
+                display: block !important;
+
+
+
+                font-size: 10px !important;
+
+
+
+                font-weight: bold !important;
+
+
+
+                text-transform: uppercase !important;
+
+
+
+                letter-spacing: 0.5px !important;
+
+
+
+                margin-bottom: 3px !important;
+
+
+
+                color: #000 !important;
+
+
+
+            }
+
+
+
+            .jejum-input-wrapper {
+
+
+
+                min-height: 18px;
+
+
+
+            }
+
+
+
+            .jejum-mirror {
+
+
+
+                position: static !important;
+
+
+
+                white-space: normal !important;
+
+
+
+                overflow: visible !important;
+
+
+
+                font-size: 11px !important;
+
+
+
+                font-weight: normal !important;
+
+
+
+                line-height: 1.6 !important;
+
+
+
+                display: block !important;
+
+
+
+                word-break: break-word !important;
+
+
+
+            }
+
+
+
+            .jejum-mirror .highlight-jejum {
+
+
+
+                font-size: 15px !important;
+
+
+
+                font-weight: 900 !important;
+
+
+
+                letter-spacing: 0.5px !important;
+
+
+
+            }
+
+
+
+            .jejum-mirror .highlight-numero {
+
+
+
+                font-size: 15px !important;
+
+
+
+                font-weight: 900 !important;
+
+
+
+                letter-spacing: 0.5px !important;
+
+
+
+            }
+
+
+
+
+
+
+
+            /* Comentários: na impressão esconde textarea e mostra mirror div */
+            textarea.com_input { display: none !important; }
+            .com_mirror {
+                display: block !important;
+                font-size: 11px !important;
+                font-weight: bold !important;
+                color: #000 !important;
+                white-space: pre-wrap !important;
+                word-break: break-word !important;
+                width: 100% !important;
+                min-height: 14px !important;
+                padding: 0 !important;
+                background: transparent !important;
+                line-height: 1.3 !important;
+            }
+            .comentario-item {
+                height: auto !important;
+                min-height: 16px !important;
+                align-items: flex-start !important;
+                overflow: visible !important;
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+        .buttons { text-align: center; margin-top: 6px; display: flex; justify-content: center; gap: 8px; }
+
+
+
+        .buttons button { padding: 5px 10px; cursor: pointer; color: white; border: none; border-radius: 4px; font-weight: bold; font-size: 11px; }
+
+
+
+        .buttons-docs { text-align: center; margin-top: 5px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+
+
+
+        .buttons-docs button { padding: 5px 10px; cursor: pointer; color: white; border: none; border-radius: 4px; font-weight: bold; font-size: 11px; background-color: #5c7a9e; }
+
+
+
+        .buttons-docs button:hover { background-color: #3d5a7a; }
+
+
+
+        .btn-link { background-color: #ff9800; }
+
+
+
+        .btn-save { background-color: #2e7d32; }
+
+
+
+        .btn-print { background-color: #1565c0; }
+
+
+
+        .btn-print:disabled { background-color: #9e9e9e !important; color: #e0e0e0 !important; cursor: not-allowed; opacity: 0.6; }
+
+
+
+
+
+
+
+        .autocomplete-items {
+
+
+
+            position: absolute;
+
+
+
+            border: 1px solid #ccc;
+
+
+
+            background-color: #fff;
+
+
+
+            z-index: 99;
+
+
+
+            top: 100%;
+
+
+
+            left: 14px;
+
+
+
+            right: 0;
+
+
+
+            max-height: 120px;
+
+
+
+            overflow-y: auto;
+
+
+
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+
+
+
+        }
+
+
+
+        .autocomplete-items div { padding: 4px 6px; cursor: pointer; font-size: 10.5px; color: #333; text-align: left; border-bottom: 1px solid #eee; }
+
+
+
+        .autocomplete-items div:hover { background-color: #e1f5fe !important; font-weight: bold; color: #000; }
+
+
+
+    </style>
+
+
+
+</head>
+
+
+
+<body onload="inicializar()">
+
+
+
+<div class="container" style="position:relative;">
+
+<div id="marca-dagua-inovare" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:999; display:flex; align-items:flex-end; justify-content:center; padding-bottom:8%; overflow:hidden;"><img src="logo-santacasa.png" alt="" style="width:65%; max-width:600px; opacity:0.22; object-fit:contain; user-select:none;"></div>
+
+
+
+    <form id="avaliacao-form" autocomplete="off">
+
+
+
+        <div class="header">
+
+
+
+            <div class="header-logo"><img src="logo-anesthemed.png" alt="Logo AnestheMed"></div>
+
+
+
+            <div class="header-title"><h2>AVALIAÇÃO PRÉ ANESTÉSICA</h2></div>
+
+
+
+            <div class="header-contact"><img src="logo-santacasa.png" alt="Santa Casa" class="logo-inovare-header"><span class="phone-num">(42) 3122-3150</span></div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section">
+
+
+
+            <div class="row">
+
+
+
+                <div class="form-group" style="width: 70%;"><label>Nome:</label><input type="text" id="nome_paciente"></div>
+
+
+
+                <div class="form-group" style="width: 30%;"><label>CPF:</label><input type="text" id="cpf_paciente" placeholder="4 primeiros dígitos"></div>
+
+
+
+            </div>
+
+
+
+            <div class="row">
+
+
+
+                <div class="form-group" style="width: 70%;"><label>Cirurgia Proposta:</label><input type="text" id="cirurgia_proposta"></div>
+
+
+
+                <div class="form-group" style="width: 30%;"><label>Idade:</label><input type="text" id="idade_paciente"></div>
+
+
+
+            </div>
+
+
+
+            <div class="row">
+
+
+
+                <div class="form-group" style="width: 50%;"><label>Cirurgião:</label><input type="text" id="cirurgiao_medico"></div>
+
+
+
+                <div class="form-group" style="width: 50%;"><label>Convênio:</label><input type="text" id="convenio_paciente"></div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section">
+
+
+
+            <div class="disease-title-container">
+
+
+
+                <div class="disease-title-text">Assinale as doenças ou sintomas que tem ou que teve: S/N</div>
+
+
+
+                <button type="button" class="btn-uncheck-no" onclick="desmarcarTodosNo()">Desmarcar todos os "Não"</button>
+
+
+
+            </div>
+
+
+
+            <div class="grid-3">
+
+
+
+                <div>
+
+
+
+                    <div class="sn-header"><span>S</span><span>N</span></div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d1" id="d1_s" onchange="comentarioAutomatico('01', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d1" id="d1_n" checked onchange="comentarioAutomatico('01', false)"><span class="btn-check"></span></label> 01. Hipertensão arterial</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d2" id="d2_s" onchange="comentarioAutomatico('02', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d2" id="d2_n" checked onchange="comentarioAutomatico('02', false)"><span class="btn-check"></span></label> 02. Cardiopatia</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d3" id="d3_s" onchange="comentarioAutomatico('03', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d3" id="d3_n" checked onchange="comentarioAutomatico('03', false)"><span class="btn-check"></span></label> 03. Dispnéia / Ortopnéia</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d4" id="d4_s" onchange="comentarioAutomatico('04', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d4" id="d4_n" checked onchange="comentarioAutomatico('04', false)"><span class="btn-check"></span></label> 04. Precordialgia</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d5" id="d5_s" onchange="comentarioAutomatico('05', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d5" id="d5_n" checked onchange="comentarioAutomatico('05', false)"><span class="btn-check"></span></label> 05. Diabetes mellitus</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d6" id="d6_s" onchange="comentarioAutomatico('06', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d6" id="d6_n" checked onchange="comentarioAutomatico('06', false)"><span class="btn-check"></span></label> 06. Outras endócrinas</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d7" id="d7_s" onchange="comentarioAutomatico('07', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d7" id="d7_n" checked onchange="comentarioAutomatico('07', false)"><span class="btn-check"></span></label> 07. Pneumopatia</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d8" id="d8_s" onchange="comentarioAutomatico('08', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d8" id="d8_n" checked onchange="comentarioAutomatico('08', false)"><span class="btn-check"></span></label> 08. Tabagismo (tempo/qtd)</div>
+
+
+
+                </div>
+
+
+
+                <div>
+
+
+
+                    <div class="sn-header"><span>S</span><span>N</span></div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d9" id="d9_s" onchange="comentarioAutomatico('09', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d9" id="d9_n" checked onchange="comentarioAutomatico('09', false)"><span class="btn-check"></span></label> 09. Etilismo (quantifique)</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d10" id="d10_s" onchange="comentarioAutomatico('10', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d10" id="d10_n" checked onchange="comentarioAutomatico('10', false)"><span class="btn-check"></span></label> 10. Hepatite</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d11" id="d11_s" onchange="comentarioAutomatico('11', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d11" id="d11_n" checked onchange="comentarioAutomatico('11', false)"><span class="btn-check"></span></label> 11. Doença Renal</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d12" id="d12_s" onchange="comentarioAutomatico('12', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d12" id="d12_n" checked onchange="comentarioAutomatico('12', false)"><span class="btn-check"></span></label> 12. Alergia medicamentosa</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d13" id="d13_s" onchange="comentarioAutomatico('13', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d13" id="d13_n" checked onchange="comentarioAutomatico('13', false)"><span class="btn-check"></span></label> 13. Convulsão</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d14" id="d14_s" onchange="comentarioAutomatico('14', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d14" id="d14_n" checked onchange="comentarioAutomatico('14', false)"><span class="btn-check"></span></label> 14. Doenças musculares</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d15" id="d15_s" onchange="comentarioAutomatico('15', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d15" id="d15_n" checked onchange="comentarioAutomatico('15', false)"><span class="btn-check"></span></label> 15. Sangramento espontâneo</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d16" id="d16_s" onchange="comentarioAutomatico('16', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d16" id="d16_n" checked onchange="comentarioAutomatico('16', false)"><span class="btn-check"></span></label> 16. Prótese dentária</div>
+
+
+
+                </div>
+
+
+
+                <div>
+
+
+
+                    <div class="sn-header"><span>S</span><span>N</span></div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d17" id="d17_s" onchange="comentarioAutomatico('17', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d17" id="d17_n" checked onchange="comentarioAutomatico('17', false)"><span class="btn-check"></span></label> 17. Possibilidade gravidez</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d18" id="d18_s" onchange="comentarioAutomatico('18', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d18" id="d18_n" checked onchange="comentarioAutomatico('18', false)"><span class="btn-check"></span></label> 18. Anestesias anteriores</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d19" id="d19_s" onchange="comentarioAutomatico('19', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d19" id="d19_n" checked onchange="comentarioAutomatico('19', false)"><span class="btn-check"></span></label> 19. Complicações anest.</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d20" id="d20_s" onchange="comentarioAutomatico('20', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d20" id="d20_n" checked onchange="comentarioAutomatico('20', false)"><span class="btn-check"></span></label> 20. Outras doenças</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d21" id="d21_s" onchange="comentarioAutomatico('21', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d21" id="d21_n" checked onchange="comentarioAutomatico('21', false)"><span class="btn-check"></span></label> 21. Emagrecedores</div>
+
+
+
+                    <div style="font-weight: bold; text-align: center; border-top: 1px solid #777; margin: 1px 0; font-size: 9.5px; line-height: 1;">Crianças:</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d22" id="d22_s" onchange="comentarioAutomatico('22', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d22" id="d22_n" checked onchange="comentarioAutomatico('22', false)"><span class="btn-check"></span></label> 22. IVAS actual ou recente</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d23" id="d23_s" onchange="comentarioAutomatico('23', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d23" id="d23_n" checked onchange="comentarioAutomatico('23', false)"><span class="btn-check"></span></label> 23. Diarréia recente</div>
+
+
+
+                    <div class="row"><label><input type="radio" name="d24" id="d24_s" onchange="comentarioAutomatico('24', this.checked)"><span class="btn-check"></span></label><label><input type="radio" name="d24" id="d24_n" checked onchange="comentarioAutomatico('24', false)"><span class="btn-check"></span></label> 24. Nasceu prematuro?</div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section med-com-split">
+
+
+
+            <div style="border-right: 1px solid #000; padding-right: 4px;">
+
+
+
+                <div class="section-title">COMENTAR DADOS POSITIVOS</div>
+
+
+
+                <div class="comentarios-cols">
+
+
+
+                    <div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c1" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c1_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c2" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c2_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c3" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c3_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c4" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c4_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c5" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c5_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c6" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c6_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c7" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c7_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c8" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c8_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c9" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c9_mirror"></div></div>
+
+
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c10" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c10_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c11" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c11_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c12" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c12_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c13" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c13_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c14" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c14_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c15" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c15_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c16" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c16_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c17" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c17_mirror"></div></div>
+
+
+
+                        <div class="comentario-item"><textarea class="com_input" id="c18" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c18_mirror"></div></div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div>
+
+
+
+                <div class="section-title">MEDICAMENTOS EM USO</div>
+
+
+
+                <div class="med-list-cols">
+
+
+
+                    <div>
+
+
+
+                        <div class="med-item"><span>01</span><input type="text" class="med-input" id="m1"></div>
+
+
+
+                        <div class="med-item"><span>02</span><input type="text" class="med-input" id="m2"></div>
+
+
+
+                        <div class="med-item"><span>03</span><input type="text" class="med-input" id="m3"></div>
+
+
+
+                        <div class="med-item"><span>04</span><input type="text" class="med-input" id="m4"></div>
+
+
+
+                        <div class="med-item"><span>05</span><input type="text" class="med-input" id="m5"></div>
+
+
+
+                        <div class="med-item"><span>06</span><input type="text" class="med-input" id="m6"></div>
+
+
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <div class="med-item"><span>07</span><input type="text" class="med-input" id="m7"></div>
+
+
+
+                        <div class="med-item"><span>08</span><input type="text" class="med-input" id="m8"></div>
+
+
+
+                        <div class="med-item"><span>09</span><input type="text" class="med-input" id="m9"></div>
+
+
+
+                        <div class="med-item"><span>10</span><input type="text" class="med-input" id="m10"></div>
+
+
+
+                        <div class="med-item"><span>11</span><input type="text" class="med-input" id="m11"></div>
+
+
+
+                        <div class="med-item"><span>12</span><input type="text" class="med-input" id="m12"></div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="row" style="margin-top: 2px; justify-content: space-between; font-size: 10px;">
+
+
+
+                    <div>
+
+
+
+                        <strong>ANTICOAG.:</strong>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="anticoag" id="ac_sim"><span class="btn-check"></span> Sim</label>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="anticoag" id="ac_nao"><span class="btn-check"></span> Não</label>
+
+
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <strong>ALERGIA:</strong>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="alergia" id="al_sim"><span class="btn-check"></span> Sim</label>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="alergia" id="al_nao"><span class="btn-check"></span> Não</label>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section">
+
+
+
+            <div class="section-title">EXAME FÍSICO</div>
+
+
+
+            <table style="width:100%; border-collapse:collapse; font-size:10.5px;">
+
+
+
+                <tr>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap; width:9%;">
+
+
+
+                        <b style="font-size:9px;">PESO</b>
+
+
+
+                        <input type="text" id="ef_peso" maxlength="3" style="width:28px; border:none; border-bottom:1px solid #777; font-size:11.5px; font-weight:800; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap; width:10%;">
+
+
+
+                        <b style="font-size:9px;">ALTURA</b>
+
+
+
+                        <input type="text" id="ef_altura" maxlength="4" style="width:36px; border:none; border-bottom:1px solid #777; font-size:11.5px; font-weight:800; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap; width:10%;">
+
+
+
+                        <b style="font-size:9px;">PA</b>
+
+
+
+                        <input type="text" id="ef_pa" maxlength="8" style="width:50px; border:none; border-bottom:1px solid #777; font-size:11.5px; font-weight:800; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap; width:9%;">
+
+
+
+                        <b style="font-size:9px;">FC</b>
+
+
+
+                        <input type="text" id="ef_fc" maxlength="3" style="width:28px; border:none; border-bottom:1px solid #777; font-size:11.5px; font-weight:800; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap; width:18%;">
+
+
+
+                        <b style="font-size:9px;">TEMP</b>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="temp" id="tp_afebril"><span class="btn-check"></span> Afeb</label>
+
+
+
+                        <label style="margin-left:2px;"><input type="radio" name="temp" id="tp_febril"><span class="btn-check"></span> Feb</label>
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap; width:10%;">
+
+
+
+                        <b style="font-size:9px;">Mallampati</b>
+
+
+
+                        <input type="text" id="ef_mallampati" maxlength="1" style="width:14px; border:none; border-bottom:1px solid #777; font-size:11.5px; font-weight:800; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap; width:16%;">
+
+
+
+                        <b style="font-size:9px;">DEM</b>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="dem_medida" id="dem_maior"><span class="btn-check"></span> &gt;12</label>
+
+
+
+                        <label style="margin-left:2px;"><input type="radio" name="dem_medida" id="dem_menor"><span class="btn-check"></span> &lt;12</label>
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap; width:18%;">
+
+
+
+                        <b style="font-size:9px;">DEM. INTUB.</b>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="dif_intub" id="df_sim"><span class="btn-check"></span> Sim</label>
+
+
+
+                        <label style="margin-left:2px;"><input type="radio" name="dif_intub" id="df_nao"><span class="btn-check"></span> Não</label>
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+
+                    <td colspan="3" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">COLUNA VERTEBRAL</b>
+
+
+
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_coluna_sp"><span class="btn-check"></span>SP</label>
+
+
+
+                        <input type="text" id="ef_coluna" style="width:calc(100% - 135px);">
+
+
+
+                    </td>
+
+
+
+                    <td colspan="2" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">ACESSO VENOSO</b>
+
+
+
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_acesso_bom"><span class="btn-check"></span>BOM</label>
+
+
+
+                        <input type="text" id="ef_acesso" style="width:calc(100% - 120px);">
+
+
+
+                    </td>
+
+
+
+                    <td colspan="3" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">ABDÔMEN</b>
+
+
+
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_abdomen_sp"><span class="btn-check"></span>SP</label>
+
+
+
+                        <input type="text" id="ef_abdomen" style="width:calc(100% - 90px);">
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+
+                    <td colspan="4" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">RESPIRATÓRIO</b>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="resp" id="rp_livres"><span class="btn-check"></span> CPP Livres</label>
+
+
+
+                        <label style="margin-left:2px;"><input type="radio" name="resp" id="rp_alt"><span class="btn-check"></span> Alt:</label>
+
+
+
+                        <input type="text" id="ef_resp_txt" style="width:calc(100% - 175px);">
+
+
+
+                    </td>
+
+
+
+                    <td colspan="4" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">CARDIOVASCULAR</b>
+
+
+
+                        <label style="margin-left:1px;"><input type="radio" name="cardio" id="cd_brnf"><span class="btn-check"></span> BRNF</label>
+
+
+
+                        <label style="margin-left:2px;"><input type="radio" name="cardio" id="cd_alt"><span class="btn-check"></span> Alt:</label>
+
+
+
+                        <input type="text" id="ef_cardio_txt" style="width:calc(100% - 180px);">
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+
+                    <td colspan="8" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">MEMBROS</b>
+
+
+
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_membros_sp"><span class="btn-check"></span>SP</label>
+
+
+
+                        <input type="text" id="ef_membros" style="width:calc(100% - 85px);">
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+            </table>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section">
+
+
+
+            <div class="section-title">EXAMES COMPLEMENTARES</div>
+
+
+
+            <table style="width:100%; border-collapse:collapse; font-size:10.5px;">
+
+
+
+                <tr>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap;">
+
+
+
+                        <b style="font-size:9px;">VG</b>
+
+
+
+                        <input type="text" id="ex_vg" maxlength="5" style="width:34px; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap;">
+
+
+
+                        <b style="font-size:9px;">HB</b>
+
+
+
+                        <input type="text" id="ex_hb" maxlength="5" style="width:34px; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap;">
+
+
+
+                        <b style="font-size:9px;">Plaquetas</b>
+
+
+
+                        <input type="text" id="ex_plaq" maxlength="9" style="width:62px; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap;">
+
+
+
+                        <b style="font-size:9px;">Glicemia</b>
+
+
+
+                        <input type="text" id="ex_glicemia" maxlength="5" style="width:34px; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap;">
+
+
+
+                        <b style="font-size:9px;">TAP/RNI</b>
+
+
+
+                        <input type="text" id="ex_rni" maxlength="5" style="width:34px; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap;">
+
+
+
+                        <b style="font-size:9px;">KPTT</b>
+
+
+
+                        <input type="text" id="ex_kptt" maxlength="5" style="width:34px; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap;">
+
+
+
+                        <b style="font-size:9px;">Creatinina</b>
+
+
+
+                        <input type="text" id="ex_creat" maxlength="5" style="width:34px; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                    <td style="border:1px solid #999; padding:1px 2px; white-space:nowrap;">
+
+
+
+                        <b style="font-size:9px;">Uréia</b>
+
+
+
+                        <input type="text" id="ex_ureia" maxlength="5" style="width:34px; text-align:center;">
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+
+                    <td colspan="8" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">RX TÓRAX</b>
+
+
+
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ex_rx_normal"><span class="btn-check"></span>NORMAL</label>
+
+
+
+                        <input type="text" id="ex_rx" style="width:calc(100% - 110px);">
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+
+                    <td colspan="8" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">ECG</b>
+
+
+
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ex_ecg_normal"><span class="btn-check"></span>NORMAL</label>
+
+
+
+                        <input type="text" id="ex_ecg" style="width:calc(100% - 85px);">
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+
+                    <td colspan="8" style="border:1px solid #999; padding:1px 2px;">
+
+
+
+                        <b style="font-size:9px;">OUTROS</b>
+
+
+
+                        <input type="text" id="ex_outros" style="width:calc(100% - 42px);">
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+            </table>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section jejum-section-print" style="background-color:#e8e8e8; border:2px solid #555; padding: 4px 6px;">
+
+
+
+            <div class="jejum-container">
+
+
+
+                <span class="jejum-titulo-print" style="display:none;">⬛ ORIENTAÇÃO DE JEJUM PRÉ-OPERATÓRIO</span>
+
+
+
+                <div class="jejum-opcoes">
+
+
+
+                    <label><input type="radio" name="tipo_jejum" id="jejum_adulto" checked onchange="alternarTextoJejum('adulto')"><span class="btn-check"></span> ADULTO</label>
+
+
+
+                    <label><input type="radio" name="tipo_jejum" id="jejum_crianca" onchange="alternarTextoJejum('crianca')"><span class="btn-check"></span> CRIANÇA</label>
+
+
+
+                    <label><input type="radio" name="tipo_jejum" id="jejum_lactente" onchange="alternarTextoJejum('lactente')"><span class="btn-check"></span> LACTENTE</label>
+
+
+
+                    <label><input type="radio" name="tipo_jejum" id="jejum_personalizado" onchange="alternarTextoJejum('personalizado')"><span class="btn-check"></span> PERSONALIZADO</label>
+
+
+
+                </div>
+
+
+
+                <div class="jejum-input-wrapper">
+
+
+
+                    <div class="jejum-mirror" id="jejum_mirror_view"></div>
+
+
+
+                    <input type="text" id="linha_jejum_completa" value="Orientado a permanecer em JEJUM pré-operatório de 8 horas para alimentos e de 2 horas para água, água de coco e isotônicos.">
+
+
+
+                </div>
+
+
+
+                <div id="jejum_personalizado_wrapper" style="display:none; width:100%; margin-top:2px;">
+                    <textarea id="jejum_personalizado_texto" rows="3" oninput="sincronizarEspelhoJejumPersonalizado()" placeholder="Digite a orientação personalizada de jejum aqui..." style="width:100%; box-sizing:border-box; border:none; border-bottom:1px solid #555; background:transparent; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:12px; font-weight:800; color:#000; resize:none; padding:2px 1px; line-height:1.5;"></textarea>
+                    <div id="jejum_personalizado_mirror" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:11px; color:#000; white-space:pre-wrap; word-break:break-word; line-height:1.5; padding:2px 1px; border-top:1px dashed #bbb; margin-top:2px; min-height:16px;"></div>
+                </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section">
+
+
+
+            <div class="section-title">CONCLUSÕES</div>
+
+
+
+            <div class="row" style="justify-content: space-between;">
+
+
+
+                <div class="form-group">
+
+
+
+                    <label>LIBERADO:</label>
+
+
+
+                    <label><input type="radio" name="liberado" id="lb_sim"><span class="btn-check"></span> Sim</label>
+
+
+
+                    <label style="margin-left:2px;"><input type="radio" name="liberado" id="lb_nao"><span class="btn-check"></span> Não</label>
+
+
+
+                    <label style="margin-left:2px;"><input type="radio" name="liberado" id="lb_aguarda"><span class="btn-check"></span> Aguarda</label>
+
+
+
+                </div>
+
+
+
+                <div class="form-group">
+
+
+
+                    <label>ASA:</label>
+
+
+
+                    <label style="margin-left:1px;"><input type="radio" name="asa" id="asa_1"><span class="btn-check"></span> I</label>
+
+
+
+                    <label style="margin-left:1px;"><input type="radio" name="asa" id="asa_2"><span class="btn-check"></span> II</label>
+
+
+
+                    <label style="margin-left:1px;"><input type="radio" name="asa" id="asa_3"><span class="btn-check"></span> III</label>
+
+
+
+                    <label style="margin-left:1px;"><input type="radio" name="asa" id="asa_4"><span class="btn-check"></span> IV</label>
+
+
+
+                    <label style="margin-left:1px;"><input type="radio" name="asa" id="asa_5"><span class="btn-check"></span> V</label>
+
+
+
+                    <label style="checkbox"><input type="checkbox" id="asa_e"><span class="btn-check"></span> E</label>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div style="margin-top:1px;">
+
+
+
+                <label style="font-weight:bold; font-size:9.5px;">Recomendações:</label>
+
+
+
+                <input type="text" id="concl_recom1" style="width:100%; margin-top:1px; display:block;">
+
+
+
+                <input type="text" id="concl_recom2" style="width:100%; margin-top:3px; display:block;">
+
+
+
+                <input type="text" id="concl_recom3" style="width:100%; margin-top:3px; display:block;">
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section">
+
+
+
+            <div class="section-title">OBSERVAÇÕES / CONDUTA</div>
+
+
+
+            <input type="text" id="obs1" style="width:100%; margin-top:1px; display:block;">
+
+
+
+            <input type="text" id="obs2" style="width:100%; margin-top:3px; display:block;">
+
+
+
+            <input type="text" id="obs3" style="width:100%; margin-top:3px; display:block;">
+
+
+
+            <input type="text" id="obs4" style="width:100%; margin-top:3px; display:block;">
+
+
+
+            <input type="text" id="obs5" style="width:100%; margin-top:3px; display:block;">
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="section" style="border:none; margin-top:5px; background:transparent;">
+
+
+
+            <div class="assinatura-container">
+
+
+
+                <div style="width: 25%; text-align: left; font-weight: bold; padding-top: 10px;">
+
+
+
+                    Data: <input type="text" id="data_avaliacao" style="width: 90px; text-align: center; padding: 1px 2px; font-weight: bold;">
+
+
+
+                </div>
+
+
+
+                
+
+
+
+                <div class="assinatura-box" style="width: 45%; min-height: 105px; position: relative; border-top: none; padding-top: 0;">
+
+
+
+                    <div class="container-carimbo-flutuante">
+
+
+
+                        <div id="o-carimbo">
+
+
+
+                            <span id="txt-nome" style="font-size: 12.5px; display: block;"></span>
+
+
+
+                            <div class="carimbo-linha-inferior">
+
+
+
+                                <img src="logo-anesthemed.png" class="mini-logo-real-carimbo" alt="Logo">
+
+
+
+                                <span id="txt-crm" style="font-size: 10px;"></span>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    
+
+
+
+                    <div style="border-bottom: 1.2px solid #000; width:100%; height: 35px;"></div>
+
+
+
+                    
+
+
+
+                    <div style="margin-top: 4px;">
+
+
+
+                        <span id="texto-seguranca-anestesista"></span>
+
+
+
+                        
+
+
+
+                        <div id="wrapper-busca-anestesista">
+
+
+
+                            <input id="busca-anestesista" type="text" placeholder="Nome do Anestesista...">
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                        <div class="controle-carimbo-box">
+
+
+
+                            <label><input type="checkbox" id="chk_aplicar_carimbo" onchange="alternarCarimboPeloCheckbox()"><span class="btn-check"></span> Aplicar Carimbo Virtual na Impressão</label>
+
+
+
+                        </div>
+
+
+
+                        
+
+
+
+                        <div style="font-size: 10.5px; font-weight: bold; margin-top: 2px; text-transform: uppercase; color: #000;">Anestesiologista</div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                
+
+
+
+                <div class="assinatura-box" style="width: 30%; border-top: 1.2px solid #000; padding-top: 4px;">
+
+
+
+                    Paciente / Responsável
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="buttons">
+
+
+
+            <button type="button" class="btn-link" onclick="gerarLinkCompartilhar()">Secretaria: Copiar Link</button>
+
+
+
+            <button type="button" class="btn-save" onclick="exportarFichaTxt()">1. Salvar Arquivo da Ficha</button>
+
+
+
+            <button type="button" class="btn-print" id="btn-imprimir" onclick="imprimirFicha()" disabled>2. Imprimir Via Paciente</button>
+
+
+
+        </div>
+
+
+
+        <div class="buttons-docs">
+
+
+
+            <button type="button" onclick="imprimirAtestadoPaciente()">📄 Atestado Paciente</button>
+
+
+
+            <button type="button" onclick="imprimirAtestadoAcompanhante()">👥 Atestado Acompanhante</button>
+
+
+
+            <button type="button" onclick="imprimirEncaminhamentoCardio()">❤️ Encaminhamento Cardiologista</button>
+
+
+
+            <button type="button" onclick="imprimirTermoConsentimento()">📋 Termo de Consentimento</button>
+
+
+
+        </div>
+
+
+
+    </form>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+    const listaMedicamentos = [
+
+
+
+        "Venzer", "Lamitor", "Tadalafila", "Lipless (ciprofibrato)", "Glifage", "Atorvastatina", "Enalapril", "Decadron", "Minoxidil", 
+
+
+
+        "Amoxicilina", "Clavulin (Amoxicilina + Clavulanato)", "Azitromicina", "Ciprofloxacino", "Cefalexina", "Ceftriaxona",
+
+
+
+        "Losartana", "Atenolol", "Metoprolol", "Propranolol", "Captopril", "Anlodipino", 
+
+
+
+        "Hidroclorotiazida", "Furosemida", "Espironolactona", "Sinvastatina", "Rosuvastatina",
+
+
+
+        "AAS (Aspirina)", "Clopidogrel (Plavix)", "Ticagrelor (Brilinta)", "Rivaroxabana (Xarelto)", 
+
+
+
+        "Apixabana (Eliquis)", "Dabigatrana (Pradaxa)", "Varfarina (Marevan)", "Metformina", "Glibenclamida", 
+
+
+
+        "Insulina NPH", "Insulina Regular", "Insulina Glargina (Lantus)", "Insulina Detemir (Levemir)", 
+
+
+
+        "Insulina Degludeca (Tresiba)", "Insulina Lispro (Humalog)", "Insulina Asparte (NovoRapid)", 
+
+
+
+        "Insulina Glulisina (Apidra)", "Levotiroxina (Puran/Synthroid)", "Metimazol (Tapazol)", 
+
+
+
+        "Propiltiomuracila (Propilracil)", "Tirzepatida (Mounjaro)", "Semaglutida (Ozempic)", 
+
+
+
+        "Semaglutida (Wegovy)", "Semaglutida (Rybelsus)", "Liraglutida (Saxenda)", "Liraglutida (Victoza)", 
+
+
+
+        "Sibutramina", "Orlistate (Xenical)", "Anfepramona", "Femproporex", "Mazindol", 
+
+
+
+        "Clonazepam (Rivotril)", "Alprazolam (Frontal)", "Diazepam", "Fluoxetina", "Sertralina", 
+
+
+
+        "Escitalopram", "Amitriptilina", "Venlafaxina (Efexor)", "Desvenlafaxina (Prastiq)", 
+
+
+
+        "Duloxetina (Cymbalta)", "Bupropiona (Wellbutrin)", "Pregabalina (Lyrica)", "Gabapentina",
+
+
+
+        "Carbamazepina (Tegretol)", "Valproato de Sódio (Depakote)", "Topiramato (Amato)", "Lamotrigina",
+
+
+
+        "Levodopa + Benserazida (Prolopa)", "Levodopa + Carbidopina", "Pramipexol (Sifrol)",
+
+
+
+        "Tansulosina (Secotex)", "Finasterida", "Dutasterida (Combodart)", "Omeprazol", "Pantoprazol", 
+
+
+
+        "Esomeprazol", "Ibuprofeno", "Dipirona", "Paracetamol", "Ginkgo Biloba", "Ginseng", "Valeriana", "Omega 3"
+
+
+
+    ];
+
+
+
+
+
+
+
+    const opcoesJejumMemorizadas = [
+
+
+
+        "Orientado a permanecer em JEJUM pré-operatório de 8 horas para alimentos e de 2 horas para água, água de coco e isotônicos.",
+
+
+
+        "Orientado responsável pela supervisão do JEJUM de 6h para alimentos e 2h para água.",
+
+
+
+        "Orientado responsável pela supervisão do JEJUM de 4h para leite materno, 2h para água e 6h para demais leites."
+
+
+
+    ];
+
+
+
+
+
+
+
+    const crmsDoGrupo = {
+
+
+
+        "Dr. Flavio Higashi": "CRM/PR 14146",
+
+
+
+        "Dr. André Trentini": "CRM/PR 17240",
+
+
+
+        "Dr. Márcio Hyeda": "CRM/PR 20159",
+
+
+
+        "Dr. Humberto Siqueira": "CRM/PR 27384",
+
+
+
+        "Dr. Leopoldo Papi": "CRM/PR 29466",
+
+
+
+        "Dr. Luca Pasqualotto": "CRM/PR 28024",
+
+
+
+        "Dr. Roberto Nacke": "CRM/PR 30503",
+
+
+
+        "Dra. Jéssica Rodrigues": "CRM/PR 37062",
+
+
+
+        "Dr. Marino Berardi": "CRM/PR 28112",
+
+
+
+        "Dra. Juliana C. Pulz": "CRM/PR 33034",
+
+
+
+        "Dr. Roberto Muller": "CRM/PR 33858",
+
+
+
+        "Dr. Felipe La Rocca": "CRM/PR 29687",
+
+
+
+        "Dr. Dirceu Takassi Jr.": "CRM/PR 48547",
+
+
+
+        "Dr. Jairo Leonel": "CRM/PR 21351",
+
+
+
+        "Dra. Vanessa Ingenchki": "CRM/PR 40935",
+
+
+
+        "Dra. Jéssica Takaki": "CRM/PR 36523",
+
+
+
+        "Dra. Denise Moriya": "CRM/PR 44442",
+
+
+
+        "Dr. Rodrigo Missio": "CRM/PR 47465"
+
+
+
+    };
+
+
+
+
+
+
+
+    const listaAnestesistas = Object.keys(crmsDoGrupo);
+
+
+
+    const totalComentariosInputs = 18;
+
+
+
+
+
+
+
+    function mascaraCPF(valorReal) {
+
+
+
+        if (!valorReal) return "";
+
+
+
+        // Remove tudo que não for dígito
+
+
+
+        const digitos = valorReal.replace(/\D/g, "");
+
+
+
+        if (digitos.length === 0) return valorReal;
+
+
+
+        // Preenche sempre até 11 posições: primeiros 4 reais, restante asterisco
+
+
+
+        const completo = digitos.padEnd(11, "*").substring(0, 11);
+
+
+
+        // Monta no formato XXX.XXX.XXX-XX usando os primeiros 4 reais + asteriscos
+
+
+
+        const d = completo.split("").map((c, i) => i < 4 ? digitos[i] || "*" : "*");
+
+
+
+        return d[0]+d[1]+d[2]+"."+d[3]+d[4]+d[5]+"."+d[6]+d[7]+d[8]+"-"+d[9]+d[10];
+
+
+
+    }
+
+
+
+
+
+
+
+    function configurarMascaraCPF() {
+
+
+
+        const campo = document.getElementById("cpf_paciente");
+
+
+
+        if (!campo) return;
+
+
+
+        // Ao ganhar foco: mostra o valor real para edição
+
+
+
+        campo.addEventListener("focus", function() {
+
+
+
+            const real = this.getAttribute("data-cpf-real");
+
+
+
+            if (real) this.value = real;
+
+
+
+        });
+
+
+
+        // Ao perder foco: aplica a máscara visual
+
+
+
+        campo.addEventListener("blur", function() {
+
+
+
+            const val = this.value.trim();
+
+
+
+            if (val) {
+
+
+
+                this.setAttribute("data-cpf-real", val);
+
+
+
+                this.value = mascaraCPF(val);
+
+
+
+            }
+
+
+
+        });
+
+
+
+        // Ao digitar: salva o real em tempo real
+
+
+
+        campo.addEventListener("input", function() {
+
+
+
+            this.setAttribute("data-cpf-real", this.value);
+
+
+
+        });
+
+
+
+        // Aplicar imediatamente se já houver valor (ex: carregado via URL/script)
+
+
+
+        aplicarMascaraCPF();
+
+
+
+    }
+
+
+
+
+
+
+
+    function aplicarMascaraCPF() {
+
+
+
+        const campo = document.getElementById("cpf_paciente");
+
+
+
+        if (!campo) return;
+
+
+
+        const valorReal = campo.getAttribute("data-cpf-real") || campo.value;
+
+
+
+        if (!valorReal) return;
+
+
+
+        campo.setAttribute("data-cpf-real", valorReal);
+
+
+
+        campo.value = mascaraCPF(valorReal);
+
+
+
+    }
+
+
+
+
+
+
+
+    function inicializar() {
+
+
+
+        definirData();
+
+
+
+        configurarAutocompleteEMedicamentos();
+
+
+
+        configurarAutocompleteJejum();
+
+
+
+        configurarAutocompleteCarimbo();
+
+
+
+        configurarDetectoresDeAlteracao();
+
+
+
+        carregarDadosUrl();
+
+
+
+        sincronizarEspelhoJejum();
+
+
+
+        configurarMascaraCPF();
+
+
+
+    }
+
+
+
+
+
+
+
+    function definirData() { 
+
+
+
+        if(!document.getElementById('data_avaliacao').value) {
+
+
+
+            document.getElementById('data_avaliacao').value = new Date().toLocaleDateString('pt-BR'); 
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+    function desmarcarTodosNo() {
+
+
+
+        for (let i = 1; i <= 24; i++) {
+
+
+
+            const elNo = document.getElementById("d" + i + "_n");
+
+
+
+            if (elNo && elNo.checked) {
+
+
+
+                elNo.checked = false;
+
+
+
+            }
+
+
+
+        }
+
+
+
+        travarImpressao();
+
+
+
+    }
+
+
+
+
+
+
+
+    function sincronizarEspelhoJejum() {
+
+
+
+        const inputEl = document.getElementById('linha_jejum_completa');
+
+
+
+        const mirrorEl = document.getElementById('jejum_mirror_view');
+
+
+
+        let texto = inputEl.value;
+
+
+
+        let textoFormatado = texto.replace(/JEJUM/g, '<span class="highlight-jejum">JEJUM</span>');
+
+
+
+        textoFormatado = textoFormatado.replace(/(\d+)h/g, '<span class="highlight-numero">$1h</span>');
+
+
+
+        textoFormatado = textoFormatado.replace(/(\d+) horas?/gi, '<span class="highlight-numero">$1H</span>');
+
+
+
+        mirrorEl.innerHTML = textoFormatado;
+
+
+
+    }
+
+
+
+
+
+
+
+    function alternarTextoJejum(tipo) {
+
+
+
+        const inp = document.getElementById('linha_jejum_completa');
+        const wrapperPadrao = document.querySelector('.jejum-input-wrapper');
+        const wrapperPersonalizado = document.getElementById('jejum_personalizado_wrapper');
+
+        if (tipo === 'personalizado') {
+            wrapperPadrao.style.display = 'none';
+            wrapperPersonalizado.style.display = 'block';
+            setTimeout(function() { document.getElementById('jejum_personalizado_texto').focus(); }, 50);
+        } else {
+            wrapperPadrao.style.display = '';
+            wrapperPersonalizado.style.display = 'none';
+
+            if (tipo === 'adulto') {
+                inp.value = opcoesJejumMemorizadas[0];
+            } else if (tipo === 'crianca') {
+                inp.value = opcoesJejumMemorizadas[1];
+            } else if (tipo === 'lactente') {
+                inp.value = opcoesJejumMemorizadas[2];
+            }
+
+            sincronizarEspelhoJejum();
+        }
+
+        travarImpressao();
+
+    }
+
+    function sincronizarEspelhoJejumPersonalizado() {
+        const ta = document.getElementById('jejum_personalizado_texto');
+        const mirror = document.getElementById('jejum_personalizado_mirror');
+        if (!ta || !mirror) return;
+
+        const palavrasNum = ['zero','um','uma','dois','duas','três','tres','quatro','cinco','seis','sete','oito','nove','dez','onze','doze','treze','quatorze','catorze','quinze','dezesseis','dezessete','dezoito','dezenove','vinte','trinta','quarenta','cinquenta','sessenta','setenta','oitenta','noventa','cem','cento'];
+
+        let txt = ta.value
+            .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+        // números seguidos de h/H (ex: 8h → 8H) ou só números
+        txt = txt.replace(/\b(\d+[hH]?)\b/g, function(m) {
+            return '<strong style="font-size:15px;letter-spacing:0.5px;">' + m.toUpperCase() + '</strong>';
+        });
+
+        // palavra JEJUM
+        txt = txt.replace(/\bJEJUM\b/gi, '<strong style="font-size:15px;letter-spacing:0.5px;">JEJUM</strong>');
+
+        // palavras numéricas por extenso
+        const re = new RegExp('\\b(' + palavrasNum.join('|') + ')\\b', 'gi');
+        txt = txt.replace(re, function(m) {
+            return '<strong style="font-size:15px;letter-spacing:0.5px;">' + m.toUpperCase() + '</strong>';
+        });
+
+        mirror.innerHTML = txt;
+    }
+
+
+
+
+
+
+
+    function configurarAutocompleteJejum() {
+
+
+
+        const inp = document.getElementById('linha_jejum_completa');
+
+
+
+        
+
+
+
+        inp.addEventListener('input', () => {
+
+
+
+            sincronizarEspelhoJejum();
+
+
+
+            travarImpressao();
+
+
+
+        });
+
+
+
+
+
+
+
+        ['focus', 'click'].forEach(evt => {
+
+
+
+            inp.addEventListener(evt, function() {
+
+
+
+                let a, b, i, val = this.value;
+
+
+
+                closeAllLists();
+
+
+
+                
+
+
+
+                a = document.createElement("DIV");
+
+
+
+                a.setAttribute("id", this.id + "autocomplete-list");
+
+
+
+                a.setAttribute("class", "autocomplete-items");
+
+
+
+                this.parentNode.appendChild(a);
+
+
+
+
+
+
+
+                for (i = 0; i < opcoesJejumMemorizadas.length; i++) {
+
+
+
+                    if (!val || opcoesJejumMemorizadas[i].toUpperCase().includes(val.toUpperCase())) {
+
+
+
+                        b = document.createElement("DIV");
+
+
+
+                        b.innerHTML = opcoesJejumMemorizadas[i].replace(/JEJUM/g, '<strong>JEJUM</strong>');
+
+
+
+                        b.innerHTML += "<input type='hidden' value='" + opcoesJejumMemorizadas[i] + "'>";
+
+
+
+                        
+
+
+
+                        b.addEventListener("click", function() {
+
+
+
+                            inp.value = this.getElementsByTagName("input")[0].value;
+
+
+
+                            closeAllLists();
+
+
+
+                            sincronizarEspelhoJejum();
+
+
+
+                            travarImpressao();
+
+
+
+                        });
+
+
+
+                        a.appendChild(b);
+
+
+
+                    }
+
+
+
+                }
+
+
+
+            });
+
+
+
+        });
+
+
+
+    }
+
+
+
+
+
+
+
+    function obterLinkCompacto() {
+
+
+
+        const dados = {};
+
+
+
+        document.querySelectorAll('input[type="text"], input[type="number"], textarea').forEach(el => {
+
+
+
+            if (el.id && el.value.trim() !== "") dados[el.id] = el.value;
+
+
+
+        });
+
+
+
+        document.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked').forEach(el => {
+
+
+
+            if (el.id) dados[el.id] = "1";
+
+
+
+        });
+
+
+
+        const params = new URLSearchParams(dados).toString();
+
+
+
+        const urlBase = window.location.href.split('?')[0];
+
+
+
+        return urlBase + "?" + params;
+
+
+
+    }
+
+
+
+
+
+
+
+    function _dadosFicha() {
+
+
+
+        const nome = document.getElementById('nome_paciente').value || '___________________';
+
+
+
+        const cirurgia = document.getElementById('cirurgia_proposta').value || '___________________';
+
+
+
+        const dataAval = document.getElementById('data_avaliacao').value || '__/__/____';
+
+
+
+        const nomeAnest = document.getElementById('busca-anestesista').value || '___________________';
+
+
+
+        const crmAnest = (crmsDoGrupo[nomeAnest]) ? crmsDoGrupo[nomeAnest] : '___________';
+
+
+
+        // Comorbidades: coleta comentários preenchidos nos campos c1-c18
+
+        const comentarios = [];
+
+
+
+        for (let i = 1; i <= 18; i++) {
+
+
+
+            const el = document.getElementById('c' + i);
+
+
+
+            if (el && el.value && el.value.trim()) comentarios.push(el.value.trim());
+
+
+
+        }
+
+
+
+        // Medicamentos: coleta m1-m12
+
+        const meds = [];
+
+
+
+        for (let i = 1; i <= 12; i++) {
+
+
+
+            const el = document.getElementById('m' + i);
+
+
+
+            if (el && el.value && el.value.trim()) meds.push(el.value.trim());
+
+
+
+        }
+
+
+
+        return { nome, cirurgia, dataAval, nomeAnest, crmAnest, comentarios, meds };
+
+
+
+    }
+
+
+
+
+
+    const _logoPath = 'logo-anesthemed.png';
+
+
+
+
+
+
+
+    function _abrirJanelaImpressao(htmlConteudo) {
+
+
+
+        const win = window.open('', '_blank', 'width=820,height=960');
+
+
+
+        win.document.write(`<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Documento</title>
+
+<style>
+
+  * { box-sizing: border-box; }
+
+
+
+  /* ── Barra de ferramentas ── */
+
+  #toolbar {
+
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+
+    background: #2c3e50; padding: 8px 16px;
+
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+
+  }
+
+  #toolbar button {
+
+    padding: 6px 18px; border: none; border-radius: 4px;
+
+    font-weight: bold; font-size: 12px; cursor: pointer;
+
+  }
+
+  #btn-imprimir-doc { background: #27ae60; color: #fff; }
+
+  #btn-imprimir-doc:hover { background: #1e8449; }
+
+  #btn-fechar-doc { background: #c0392b; color: #fff; }
+
+  #btn-fechar-doc:hover { background: #922b21; }
+
+  #aviso-edit { color: #f0e68c; font-size: 11px; font-family: Arial, sans-serif; flex: 1; text-align: right; }
+
+
+
+  /* ── Documento ── */
+
+  body { margin: 0; background: #e0e0e0; font-family: Arial, sans-serif; }
+
+  #documento {
+
+    background: #fff; width: 794px; max-width: 100%;
+
+    margin: 60px auto 40px; padding: 30px 45px;
+
+    min-height: 600px; outline: none;
+
+    font-size: 10.5pt; color: #000; line-height: 1.5;
+
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+
+  }
+
+  #documento:focus { box-shadow: 0 0 0 3px #27ae6055, 0 2px 12px rgba(0,0,0,0.18); }
+
+
+
+  /* ── Cabeçalho com logo ── */
+
+  .doc-header {
+
+    display: flex; align-items: center; justify-content: space-between;
+
+    border-bottom: 3px solid #0f2a4a; padding-bottom: 10px; margin-bottom: 22px;
+
+  }
+
+  .doc-header img.logo-anesthemed { height: 52px; width: auto; object-fit: contain; }
+
+  .doc-header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+
+  .doc-header-right img.logo-inovare-doc { height: 40px; width: auto; object-fit: contain; }
+
+  .doc-header-info { text-align: right; font-size: 9pt; color: #0f2a4a; font-weight: bold; line-height: 1.5; }
+
+
+
+  /* ── Título ── */
+
+  #documento h2 {
+
+    text-align: center; font-size: 13pt; text-transform: uppercase;
+
+    letter-spacing: 1px; margin: 0 0 18px 0; color: #0f2a4a;
+
+  }
+
+  #documento p { margin: 10px 0; text-align: justify; }
+
+  #documento ul { margin: 8px 0 8px 24px; }
+
+  #documento li { margin: 3px 0; }
+
+
+
+  /* ── Assinatura com carimbo ── */
+
+  .doc-assinatura {
+
+    margin-top: 55px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+  }
+
+  /* Bloco único: carimbo acima + linha abaixo */
+
+  .doc-assin-linha {
+
+    text-align: center; width: 230px;
+
+  }
+
+  .doc-assin-traco {
+
+    border-top: 1px solid #000; margin-bottom: 5px;
+
+  }
+
+  .doc-assin-nome {
+
+    font-size: 8pt; font-weight: bold; color: #000;
+
+    text-transform: uppercase; letter-spacing: 0.3px;
+
+    line-height: 1.4;
+
+  }
+
+  .doc-assin-crm {
+
+    font-size: 7.5pt; color: #333; margin-top: 1px;
+
+  }
+
+  .doc-assin-cargo {
+
+    font-size: 7pt; color: #555; margin-top: 1px;
+
+    text-transform: uppercase; letter-spacing: 0.5px;
+
+  }
+
+
+
+  /* Bloco direito: carimbo levemente torto */
+
+  .doc-carimbo-wrap { text-align: center; margin-bottom: 8px; }
+
+  .doc-carimbo {
+
+    border: 3px solid #0f2a4a; border-radius: 4px;
+
+    padding: 5px 10px; color: #0f2a4a;
+
+    font-family: 'Courier New', monospace; font-weight: bold;
+
+    text-transform: uppercase; opacity: 0.68;
+
+    display: inline-block; width: 100%;
+
+    font-size: 9pt; margin-bottom: 4px;
+
+    transform: rotate(-2.5deg);
+
+    box-shadow: 1px 1px 0px rgba(15,42,74,0.18);
+
+  }
+
+  .doc-carimbo .carimbo-nome { display: block; font-size: 9.5pt; margin-bottom: 3px; }
+
+  .doc-carimbo .carimbo-linha-inf {
+
+    display: flex; align-items: center;
+
+    justify-content: center; gap: 5px; margin-top: 3px;
+
+  }
+
+  .doc-carimbo .carimbo-linha-inf img {
+
+    height: 24px; width: auto;
+
+    filter: brightness(0) sepia(1) hue-rotate(190deg) saturate(8) brightness(0.35);
+
+  }
+
+  .doc-carimbo .carimbo-crm { font-size: 8pt; }
+
+  .doc-local { margin-top: 8px; font-size: 9pt; color: #444; }
+
+
+
+  /* ── Marca d'água ── */
+
+  .marca-dagua-doc {
+
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+
+    display: flex; align-items: center; justify-content: center;
+
+    pointer-events: none; z-index: 0; overflow: hidden;
+
+  }
+
+  .marca-dagua-doc img {
+
+    width: 70%; max-width: 480px; opacity: 0.18;
+
+    object-fit: contain; user-select: none;
+
+  }
+
+  #documento { position: relative; z-index: 1; }
+
+
+
+  /* ── Impressão ── */
+
+  @media print {
+
+    #toolbar { display: none !important; }
+
+    body { background: #fff; }
+
+    #documento { margin: 0; padding: 15px 30px; box-shadow: none; width: 100%; font-size: 10pt; line-height: 1.45; }
+
+    .doc-carimbo { opacity: 0.55; }
+
+    @page { size: A4; margin: 8mm 10mm; }
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div id="toolbar">
+
+  <button id="btn-imprimir-doc" onclick="window.print()">🖨️ Imprimir</button>
+
+  <button id="btn-fechar-doc" onclick="window.close()">✕ Fechar</button>
+
+  <span id="aviso-edit">✏️ Clique no documento para editar antes de imprimir</span>
+
+</div>
+
+
+
+<div id="documento" contenteditable="true" spellcheck="true">
+
+
+
+  <div class="marca-dagua-doc" contenteditable="false"><img src="logo-santacasa.png" alt=""></div>
+
+
+
+  <div class="doc-header" contenteditable="false">
+
+    <img src="${_logoPath}" alt="AnestheMed" class="logo-anesthemed">
+
+    <div class="doc-header-right">
+
+      <img src="logo-santacasa.png" alt="Santa Casa" class="logo-inovare-doc">
+
+      <div class="doc-header-info">Avaliação Pré Anestésica</div>
+
+    </div>
+
+  </div>
+
+
+
+  ${htmlConteudo}
+
+
+
+</div>
+
+
+
+</body></html>`);
+
+
+
+        win.document.close();
+
+
+
+    }
+
+
+
+
+
+    function imprimirAtestadoPaciente() {
+
+
+
+        const d = _dadosFicha();
+
+
+
+        const html = `
+
+<h2>Atestado Médico</h2>
+
+<p>Atesto, para os devidos fins de direito, que o(a) Sr(a). <strong>${d.nome}</strong> compareceu a este consultório médico no dia <strong>${d.dataAval}</strong>, no período das ______ às ______ horas, para realização de consulta e avaliação pré-anestésica/pré-operatória.</p>
+
+<div class="doc-assinatura">
+
+  <div class="doc-assin-linha">
+
+    <div class="doc-carimbo-wrap">
+
+      <div class="doc-carimbo">
+
+        <span class="carimbo-nome">${d.nomeAnest}</span>
+
+        <div class="carimbo-linha-inf">
+
+          <img src="${_logoPath}" alt="Logo">
+
+          <span class="carimbo-crm">${d.crmAnest}</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="doc-assin-traco"></div>
+
+    <div class="doc-assin-nome">${d.nomeAnest}</div>
+
+    <div class="doc-assin-crm">${d.crmAnest}</div>
+
+    <div class="doc-assin-cargo">Anestesiologista</div>
+
+    <div class="doc-local">Ponta Grossa, ${d.dataAval}</div>
+
+  </div>
+
+</div>`;
+
+
+
+        _abrirJanelaImpressao(html);
+
+
+
+    }
+
+
+
+
+
+    function imprimirAtestadoAcompanhante() {
+
+
+
+        const d = _dadosFicha();
+
+
+
+        const html = `
+
+<h2>Atestado de Acompanhante</h2>
+
+<p>Atesto, para os devidos fins de direito, que o(a) Sr(a). <strong>___________________</strong> esteve presente neste consultório médico no dia <strong>${d.dataAval}</strong>, no período das ______ às ______ horas, na condição de acompanhante do(a) paciente <strong>${d.nome}</strong>, que se submeteu à consulta pré-operatória.</p>
+
+<div class="doc-assinatura">
+
+  <div class="doc-assin-linha">
+
+    <div class="doc-carimbo-wrap">
+
+      <div class="doc-carimbo">
+
+        <span class="carimbo-nome">${d.nomeAnest}</span>
+
+        <div class="carimbo-linha-inf">
+
+          <img src="${_logoPath}" alt="Logo">
+
+          <span class="carimbo-crm">${d.crmAnest}</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="doc-assin-traco"></div>
+
+    <div class="doc-assin-nome">${d.nomeAnest}</div>
+
+    <div class="doc-assin-crm">${d.crmAnest}</div>
+
+    <div class="doc-assin-cargo">Anestesiologista</div>
+
+    <div class="doc-local">Ponta Grossa, ${d.dataAval}</div>
+
+  </div>
+
+</div>`;
+
+
+
+        _abrirJanelaImpressao(html);
+
+
+
+    }
+
+
+
+
+
+    function imprimirEncaminhamentoCardio() {
+
+
+
+        const d = _dadosFicha();
+
+
+
+        const comorbStr = d.comentarios.length > 0
+
+            ? d.comentarios.map(c => `<li>${c}</li>`).join('')
+
+            : '<li>Sem comorbidades relevantes registradas</li>';
+
+
+
+        const medStr = d.meds.length > 0
+
+            ? d.meds.map(m => `<li>${m}</li>`).join('')
+
+            : '<li>Nenhuma medicação registrada</li>';
+
+
+
+        const html = `
+
+<h2>Solicitação de Parecer Cardiológico</h2>
+
+<p>Ao Colega Cardiologista,</p>
+
+<p>Solicito avaliação cardiovascular e parecer de risco cirúrgico para o(a) paciente <strong>${d.nome}</strong>, candidato(a) ao procedimento de <strong>${d.cirurgia}</strong>.</p>
+
+<p><strong>Histórico e Comorbidades:</strong></p>
+
+<ul>${comorbStr}</ul>
+
+<p><strong>Medicações em Uso:</strong></p>
+
+<ul>${medStr}</ul>
+
+<p>Agradeço antecipadamente pela colaboração e orientações quanto ao manejo perioperatório das medicações e estratificação de risco.</p>
+
+<div class="doc-assinatura">
+
+  <div class="doc-assin-linha">
+
+    <div class="doc-carimbo-wrap">
+
+      <div class="doc-carimbo">
+
+        <span class="carimbo-nome">${d.nomeAnest}</span>
+
+        <div class="carimbo-linha-inf">
+
+          <img src="${_logoPath}" alt="Logo">
+
+          <span class="carimbo-crm">${d.crmAnest}</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="doc-assin-traco"></div>
+
+    <div class="doc-assin-nome">${d.nomeAnest}</div>
+
+    <div class="doc-assin-crm">${d.crmAnest}</div>
+
+    <div class="doc-assin-cargo">Anestesiologista</div>
+
+    <div class="doc-local">Ponta Grossa, ${d.dataAval}</div>
+
+  </div>
+
+</div>`;
+
+
+
+        _abrirJanelaImpressao(html);
+
+
+
+    }
+
+
+
+
+
+    function imprimirTermoConsentimento() {
+
+        const d = _dadosFicha();
+
+        const html = `
+
+<h2 style="font-size:10.5pt !important;letter-spacing:0.3px;margin-bottom:10px;">Termo de Consentimento Esclarecido e Avaliação Anestésica ou de Sedação</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;margin-bottom:12px;font-size:9.5pt;">
+  <div><span style="font-size:7.5pt;color:#555;">Paciente</span><br>
+  <span style="font-weight:bold;border-bottom:1px solid #555;display:block;padding-bottom:1px;min-height:15px;">${d.nome}</span></div>
+  <div><span style="font-size:7.5pt;color:#555;">Data do Procedimento</span><br>
+  <span style="border-bottom:1px solid #555;display:block;padding-bottom:1px;min-height:15px;">&nbsp;</span></div>
+  <div><span style="font-size:7.5pt;color:#555;">Declarante (se diferente do paciente)</span><br>
+  <span style="border-bottom:1px solid #555;display:block;padding-bottom:1px;min-height:15px;">&nbsp;</span></div>
+  <div><span style="font-size:7.5pt;color:#555;">Procedimento Cirúrgico / Diagnóstico</span><br>
+  <span style="font-weight:bold;border-bottom:1px solid #555;display:block;padding-bottom:1px;min-height:15px;">${d.cirurgia}</span></div>
+</div>
+
+<p style="font-weight:bold;font-size:10pt;margin:5px 0 3px 0;">CONSENTIMENTO</p>
+<p style="margin:3px 0;">Declaro para fins legais:</p>
+<p style="margin:3px 0;"><strong>1.</strong> Que estou ciente que, a meu (nosso) pedido, estarei sendo submetido à anestesia para o procedimento referenciado, na data designada;</p>
+<p style="margin:3px 0;"><strong>2.</strong> Que tive total e integral conhecimento dos fatores que envolvem o ato anestésico, através da explanação prestada pelo Médico Anestesiologista que me examinou, tendo tido a oportunidade de receber todos os esclarecimentos necessários;</p>
+<p style="margin:3px 0;"><strong>3.</strong> Que reconheço que o(s) Médico(s) Anestesiologista(s) exerce(m) atividade de meio, obrigando-se a prestar seus serviços da melhor forma possível, com a melhor técnica e zelo profissional;</p>
+<p style="margin:3px 0;"><strong>4.</strong> Que foram prestadas ao Médico Anestesiologista todas as informações relativas às condições médicas, físicas e psicológicas do paciente, sem omissão de qualquer fato;</p>
+<p style="margin:3px 0;"><strong>5.</strong> Que foram informados pelo Médico Anestesiologista os riscos inerentes e naturais ao ato anestésico;</p>
+<p style="margin:3px 0;"><strong>6.</strong> Que o internamento deu-se por livre e espontânea vontade, e que o(s) Médico(s) Anestesiologista(s) apenas se responsabiliza(m) pelos procedimentos de sua especialidade, não se responsabilizando pela qualidade dos serviços da instituição hospitalar ou demais profissionais participantes do ato cirúrgico.</p>
+<p style="margin:6px 0 3px 0;">A presente declaração foi lida e compreendida em todos os seus termos.</p>
+
+<div style="margin-top:20px;display:flex;gap:12px;justify-content:space-between;align-items:flex-end;">
+  <div style="flex:1;text-align:center;">
+    <div style="border-top:1px solid #000;margin-bottom:4px;"></div>
+    <div style="font-size:8pt;">Paciente</div>
+  </div>
+  <div style="flex:1;text-align:center;">
+    <div style="border-top:1px solid #000;margin-bottom:4px;"></div>
+    <div style="font-size:8pt;">Testemunha</div>
+  </div>
+  <div style="flex:1;text-align:center;">
+    <div style="border-top:1px solid #000;margin-bottom:4px;"></div>
+    <div style="font-size:8pt;">Data</div>
+  </div>
+  <div style="flex:1.2;text-align:center;position:relative;">
+    <div style="position:absolute;bottom:26px;left:50%;transform:translateX(-50%) rotate(-2deg);border:3px solid #0f2a4a;border-radius:4px;padding:4px 8px;color:#0f2a4a;font-family:'Courier New',monospace;font-weight:bold;text-transform:uppercase;opacity:0.65;width:175px;font-size:7.5pt;text-align:center;background:rgba(255,255,255,0.9);pointer-events:none;box-sizing:border-box;">
+      <span style="display:block;font-size:8pt;margin-bottom:2px;">${d.nomeAnest}</span>
+      <div style="display:flex;align-items:center;justify-content:center;gap:4px;">
+        <img src="${_logoPath}" alt="Logo" style="height:18px;width:auto;filter:brightness(0) sepia(1) hue-rotate(190deg) saturate(8) brightness(0.35);">
+        <span style="font-size:7pt;">${d.crmAnest}</span>
+      </div>
+    </div>
+    <div style="border-top:1px solid #000;margin-bottom:4px;"></div>
+    <div style="font-size:8pt;">Anestesiologista &nbsp;|&nbsp; Ponta Grossa, ${new Date().toLocaleDateString('pt-BR')}</div>
+  </div>
+</div>
+
+<div style="margin-top:12px;padding:6px 10px;border:1px solid #aaa;font-size:7pt;color:#444;line-height:1.4;text-align:justify;">
+  <em>Código de Ética Médica - Art. 59° &#9632; É vedado ao médico deixar de informar ao paciente o diagnóstico, o prognóstico, os riscos e objetivos do tratamento, salvo quando, a comunicação direta ao mesmo possa provocar-lhe dano, devendo, nesse caso, a comunicação ser feita ao seu responsável legal. Lei 8078 de 11/09/1990 - Código Brasileiro de Defesa do Consumidor: Art. 9° - O fornecedor de produtos ou serviços potencialmente perigosos à saúde ou segurança deverá informar, de maneira ostensiva e adequada, a respeito da sua nocividade ou periculosidade, sem prejuízo da adoção de outras medidas cabíveis em cada caso concreto. Art. 39° - É vedado ao fornecedor de produtos ou serviços dentre outras práticas abusivas: VI - executar serviços sem a prévia elaboração de orçamento e autorização expressa do consumidor, ressalvadas as decorrentes de práticas anteriores entre as partes.</em>
+</div>`;
+
+        _abrirJanelaImpressao(html);
+
+    }
+
+    function gerarLinkCompartilhar() {
+
+
+
+        const linkCompleto = obterLinkCompacto();
+
+
+
+        const nomePct = (document.getElementById('nome_paciente').value || "PACIENTE_SEM_NOME").toUpperCase();
+
+
+
+        const textoParaSpark = `**PACIENTE:** ${nomePct}\n**LINK DA FICHA:** ${linkCompleto}`;
+
+
+
+        
+
+
+
+        navigator.clipboard.writeText(textoParaSpark).then(() => {
+
+
+
+            alert(`✓ Mensagem formatada com sucesso para o Spark!\n\nPaciente: ${nomePct}`);
+
+
+
+        }).catch(err => {
+
+
+
+            alert("Erro ao copiar automaticamente.");
+
+
+
+        });
+
+
+
+    }
+
+
+
+
+
+
+
+    function exportarFichaTxt() {
+
+
+
+        const linkCompleto = obterLinkCompacto();
+
+
+
+        const nomePct = (document.getElementById('nome_paciente').value || "PACIENTE_SEM_NOME").toUpperCase();
+
+
+
+        const cpfPct = document.getElementById('cpf_paciente').getAttribute("data-cpf-real") || document.getElementById('cpf_paciente').value || "SEM_CPF";
+
+
+
+        const anestesistaInput = document.getElementById('busca-anestesista').value;
+
+
+
+        const medicoTxt = (anestesistaInput) ? anestesistaInput + " - " + (crmsDoGrupo[anestesistaInput] || "") : "Não preenchido";
+
+
+
+
+
+
+
+        const conteudoTxt = "==================================================\nANESTHEMED - FICHA DIGITAL DE AVALIACAO PRE-ANESTESICA\n==================================================\n\nPaciente: " + nomePct + "\nCPF (Parcial): " + cpfPct + "\nData: " + document.getElementById('data_avaliacao').value + "\nAnestesista: " + medicoTxt + "\n\nPARA REABRIR ESTA FICHA INTEGRALMENTE PREENCHIDA, COPIE O LINK RESTRITO ABAIXO:\n\n" + linkCompleto + "\n\n==================================================";
+
+
+
+        const blob = new Blob([conteudoTxt], { type: "text/plain;charset=utf-8" });
+
+
+
+        const linkDownload = document.createElement("a");
+
+
+
+        const nomeArquivoClean = nomePct.replace(/\s+/g, '_');
+
+
+
+        linkDownload.download = "AVAL_" + nomeArquivoClean + "_" + cpfPct + ".txt";
+
+
+
+        linkDownload.href = window.URL.createObjectURL(blob);
+
+
+
+        linkDownload.style.display = "none";
+
+
+
+        document.body.appendChild(linkDownload);
+
+
+
+        linkDownload.click();
+
+
+
+        document.body.removeChild(linkDownload);
+
+
+
+        navigator.clipboard.writeText(linkCompleto).then(() => {
+
+
+
+            alert("✓ Ficha digital baixada com sucesso!\n\n💡 O link real de recuperação foi inserido no arquivo e também copiado para sua área de transferência.");
+
+
+
+        }).catch(() => {
+
+
+
+            alert("Ficha baixada com sucesso!");
+
+
+
+        });
+
+
+
+        document.getElementById('btn-imprimir').removeAttribute('disabled');
+
+
+
+    }
+
+
+
+
+
+
+
+    function sincronizarMirrors() {
+        document.querySelectorAll('textarea.com_input').forEach(function(el) {
+            const mirror = document.getElementById(el.id + '_mirror');
+            if (mirror) {
+                mirror.textContent = el.value;
+                mirror.style.fontSize = el.style.fontSize || '12px';
+            }
+        });
+    }
+
+    function imprimirFicha() {
+        const nome = document.getElementById('nome_paciente').value || "PACIENTE";
+        document.title = "AVAL_" + nome.replace(/\s+/g, '_').toUpperCase();
+        sincronizarMirrors();
+        window.print();
+    }
+
+
+
+
+
+
+
+    function travarImpressao() {
+
+
+
+        document.getElementById('btn-imprimir').setAttribute('disabled', 'true');
+
+
+
+    }
+
+
+
+
+
+
+
+    function configurarDetectoresDeAlteracao() {
+
+
+
+        document.querySelectorAll('input, textarea').forEach(el => {
+
+
+
+            if(el.id !== 'busca-anestesista' && el.id !== 'linha_jejum_completa' && !el.classList.contains('med-input')) {
+
+
+
+                el.addEventListener('input', travarImpressao);
+
+
+
+                el.addEventListener('change', travarImpressao);
+
+
+
+            }
+
+
+
+        });
+
+
+
+    }
+
+
+
+
+
+
+
+    function configurarAutocompleteEMedicamentos() {
+
+
+
+        const inputs = Array.from(document.querySelectorAll('.med-input'));
+
+
+
+        inputs.forEach((input, index) => {
+
+
+
+            autocomplete(input, listaMedicamentos, inputs, index);
+
+
+
+            input.addEventListener('input', function() {
+
+
+
+                ajustarFonteLinhaMed(this);
+
+
+
+            });
+
+
+
+            input.addEventListener('keydown', function(e) {
+
+
+
+                if (e.key === 'Enter') {
+
+
+
+                    e.preventDefault();
+
+
+
+                    const proximo = inputs[index + 1];
+
+
+
+                    if (proximo) proximo.focus();
+
+
+
+                }
+
+
+
+            });
+
+
+
+        });
+
+
+
+    }
+
+
+
+
+
+
+
+    function autocomplete(inp, arr, inputs, index) {
+
+
+
+        let currentFocus;
+
+
+
+        inp.addEventListener("input", function(e) {
+
+
+
+            let a, b, i, val = this.value;
+
+
+
+            closeAllLists();
+
+
+
+            if (!val) { return false; }
+
+
+
+            currentFocus = -1;
+
+
+
+            a = document.createElement("DIV");
+
+
+
+            a.setAttribute("id", this.id + "autocomplete-list");
+
+
+
+            a.setAttribute("class", "autocomplete-items");
+
+
+
+            this.parentNode.appendChild(a);
+
+
+
+            let count = 0;
+
+
+
+            for (i = 0; i < arr.length; i++) {
+
+
+
+                if (arr[i].toUpperCase().includes(val.toUpperCase())) {
+
+
+
+                    if(count >= 5) break; 
+
+
+
+                    b = document.createElement("DIV");
+
+
+
+                    let idx = arr[i].toUpperCase().indexOf(val.toUpperCase());
+
+
+
+                    b.innerHTML = arr[i].substr(0, idx) + "<strong>" + arr[i].substr(idx, val.length) + "</strong>" + arr[i].substr(idx + val.length);
+
+
+
+                    b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+
+
+
+                    b.addEventListener("click", function(e) {
+
+
+
+                        inp.value = this.getElementsByTagName("input")[0].value;
+
+
+
+                        closeAllLists();
+
+
+
+                        travarImpressao();
+
+
+
+                        const proximo = inputs[index + 1];
+
+
+
+                        if (proximo) proximo.focus();
+
+
+
+                    });
+
+
+
+                    a.appendChild(b);
+
+
+
+                    count++;
+
+
+
+                }
+
+
+
+            }
+
+
+
+        });
+
+
+
+        inp.addEventListener("keydown", function(e) {
+
+
+
+            let x = document.getElementById(this.id + "autocomplete-list");
+
+
+
+            if (x) x = x.getElementsByTagName("div");
+
+
+
+            if (e.keyCode == 40) { currentFocus++; addActive(x); } 
+
+
+
+            else if (e.keyCode == 38) { currentFocus--; addActive(x); } 
+
+
+
+            else if (e.keyCode == 13) { 
+
+
+
+                if (currentFocus > -1 && x) { 
+
+
+
+                    e.preventDefault(); 
+
+
+
+                    x[currentFocus].click(); 
+
+
+
+                } 
+
+
+
+            }
+
+
+
+        });
+
+
+
+        function addActive(x) {
+
+
+
+            if (!x) return false; removeActive(x);
+
+
+
+            if (currentFocus >= x.length) currentFocus = 0;
+
+
+
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+
+
+
+            x[currentFocus].classList.add("autocomplete-active");
+
+
+
+        }
+
+
+
+        function removeActive(x) { for (let i = 0; i < x.length; i++) x[i].classList.remove("autocomplete-active"); }
+
+
+
+    }
+
+
+
+
+
+
+
+    function closeAllLists(elmnt) {
+
+
+
+        const x = document.getElementsByClassName("autocomplete-items");
+
+
+
+        for (let i = 0; i < x.length; i++) { 
+
+
+
+            if (elmnt != x[i] && elmnt != document.getElementById('linha_jejum_completa') && (!elmnt || !elmnt.classList.contains('med-input'))) {
+
+
+
+                x[i].parentNode.removeChild(x[i]); 
+
+
+
+            } 
+
+
+
+        }
+
+
+
+    }
+
+
+
+    document.addEventListener("click", function (e) { closeAllLists(e.target); });
+
+
+
+
+
+
+
+    function comentarioAutomatico(numero, isChecked) {
+
+
+
+        const prefixoMarcador = numero + ". ";
+
+
+
+        let comentariosAtuais = [];
+
+
+
+        
+
+
+
+        for (let i = 1; i <= totalComentariosInputs; i++) {
+
+
+
+            let val = document.getElementById("c" + i).value.trim();
+
+
+
+            if (val !== "") {
+
+
+
+                comentariosAtuais.push(val);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+        let campoParaFocarId = null;
+
+
+
+
+
+
+
+        if (isChecked) {
+
+
+
+            let existe = comentariosAtuais.some(c => c.startsWith(prefixoMarcador));
+
+
+
+            if (!existe) {
+
+
+
+                comentariosAtuais.push(prefixoMarcador);
+
+
+
+            }
+
+
+
+        } else {
+
+
+
+            comentariosAtuais = comentariosAtuais.filter(c => !c.startsWith(prefixoMarcador));
+
+
+
+        }
+
+
+
+
+
+
+
+        comentariosAtuais.sort((a, b) => {
+
+
+
+            let numA = parseInt(a.split(".")[0]) || 0;
+
+
+
+            let numB = parseInt(b.split(".")[0]) || 0;
+
+
+
+            return numA - numB;
+
+
+
+        });
+
+
+
+
+
+
+
+        for (let i = 1; i <= totalComentariosInputs; i++) {
+
+
+
+            const inputElement = document.getElementById("c" + i);
+
+
+
+            const textoFinal = comentariosAtuais[i - 1] || "";
+
+
+
+            inputElement.value = textoFinal;
+
+
+
+            ajustarFonteLinha(inputElement);
+
+
+
+
+
+
+
+            if (isChecked && textoFinal === prefixoMarcador) {
+
+
+
+                campoParaFocarId = "c" + i;
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+        if (campoParaFocarId) {
+
+
+
+            setTimeout(() => {
+
+
+
+                const elFoco = document.getElementById(campoParaFocarId);
+
+
+
+                elFoco.focus();
+
+
+
+                const pos = elFoco.value.length;
+
+
+
+                elFoco.setSelectionRange(pos, pos);
+
+
+
+            }, 50);
+
+
+
+        }
+
+
+
+
+
+
+
+        travarImpressao();
+
+
+
+    }
+
+
+
+
+
+
+
+    function ajustarFonteLinha(el) {
+        if (!el) return;
+
+        // Reseta para medir corretamente
+        el.style.height = "auto";
+        el.style.fontSize = "12px";
+        let fontSize = 12;
+
+        // Diminui fonte enquanto o conteúdo ultrapassar a largura (linha única)
+        el.rows = 1;
+        while (el.scrollWidth > el.clientWidth && fontSize > 9.5) {
+            fontSize -= 0.5;
+            el.style.fontSize = fontSize + "px";
+        }
+
+        // Se mesmo na menor fonte ainda transbordar, ativa quebra de linha
+        el.style.whiteSpace = "pre-wrap";
+        el.style.height = "auto";
+        el.style.height = el.scrollHeight + "px";
+
+        // Sincroniza o div espelho (usado na impressão)
+        const mirror = document.getElementById(el.id + "_mirror");
+        if (mirror) {
+            mirror.textContent = el.value;
+            mirror.style.fontSize = el.style.fontSize || "12px";
+        }
+    }
+
+
+
+
+
+
+
+    function ajustarFonteLinhaMed(el) {
+
+
+
+        if (!el) return;
+
+
+
+        let fontSize = 12; 
+
+
+
+        el.style.fontSize = fontSize + "px";
+
+
+
+        
+
+
+
+        while (el.scrollWidth > el.clientWidth && fontSize > 8) {
+
+
+
+            fontSize -= 0.5;
+
+
+
+            el.style.fontSize = fontSize + "px";
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+    function configurarAutocompleteCarimbo() {
+
+
+
+        const inp = document.getElementById("busca-anestesista");
+
+
+
+        let currentFocus = -1;
+
+
+
+        inp.addEventListener("input", function(e) {
+
+
+
+            let a, b, i, val = this.value;
+
+
+
+            closeAllCarimboLists();
+
+
+
+            if (!val) { limparVinculoAnestesista(); return false; }
+
+
+
+            currentFocus = -1;
+
+
+
+            a = document.createElement("DIV");
+
+
+
+            a.setAttribute("id", this.id + "autocomplete-list");
+
+
+
+            a.setAttribute("class", "autocomplete-carimbo-items");
+
+
+
+            this.parentNode.appendChild(a);
+
+
+
+            for (i = 0; i < listaAnestesistas.length; i++) {
+
+
+
+                if (listaAnestesistas[i].toUpperCase().includes(val.toUpperCase())) {
+
+
+
+                    b = document.createElement("DIV");
+
+
+
+                    let idx = listaAnestesistas[i].toUpperCase().indexOf(val.toUpperCase());
+
+
+
+                    b.innerHTML = listaAnestesistas[i].substr(0, idx) + "<strong>" + listaAnestesistas[i].substr(idx, val.length) + "</strong>" + listaAnestesistas[i].substr(idx + val.length);
+
+
+
+                    b.innerHTML += "<input type='hidden' value='" + listaAnestesistas[i] + "'>";
+
+
+
+                    b.addEventListener("click", function(e) {
+
+
+
+                        inp.value = this.getElementsByTagName("input")[0].value;
+
+
+
+                        closeAllCarimboLists();
+
+
+
+                        atualizarDadosTextoAnestesista(inp.value);
+
+
+
+                    });
+
+
+
+                    a.appendChild(b);
+
+
+
+                }
+
+
+
+            }
+
+
+
+        });
+
+
+
+        inp.addEventListener("keydown", function(e) {
+
+
+
+            let x = document.getElementById(this.id + "autocomplete-list");
+
+
+
+            if (x) x = x.getElementsByTagName("div");
+
+
+
+            if (e.keyCode == 40) { currentFocus++; addActive(x); }
+
+
+
+            else if (e.keyCode == 38) { currentFocus--; addActive(x); }
+
+
+
+            else if (e.keyCode == 13) { if (currentFocus > -1) { e.preventDefault(); if (x) x[currentFocus].click(); } }
+
+
+
+        });
+
+
+
+        function addActive(x) {
+
+
+
+            if (!x) return false;
+
+
+
+            removeActive(x);
+
+
+
+            if (currentFocus >= x.length) currentFocus = 0;
+
+
+
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+
+
+
+            x[currentFocus].classList.add("autocomplete-carimbo-active");
+
+
+
+        }
+
+
+
+        function removeActive(x) { for (let i = 0; i < x.length; i++) x[i].classList.remove("autocomplete-carimbo-active"); }
+
+
+
+        function closeAllCarimboLists(elmnt) {
+
+
+
+            const x = document.getElementsByClassName("autocomplete-carimbo-items");
+
+
+
+            for (let i = 0; i < x.length; i++) { if (elmnt != x[i] && elmnt != inp) x[i].parentNode.removeChild(x[i]); }
+
+
+
+        }
+
+
+
+        document.addEventListener("click", function (e) { closeAllCarimboLists(e.target); });
+
+
+
+    }
+
+
+
+
+
+
+
+    function atualizarDadosTextoAnestesista(nomeSelecionado) {
+
+
+
+        const crmEncontrado = crmsDoGrupo[nomeSelecionado];
+
+
+
+        if (crmEncontrado) {
+
+
+
+            document.getElementById('busca-anestesista').value = nomeSelecionado;
+
+
+
+            document.getElementById('txt-nome').innerText = nomeSelecionado;
+
+
+
+            document.getElementById('txt-crm').innerText = crmEncontrado;
+
+
+
+            document.getElementById('texto-seguranca-anestesista').innerText = nomeSelecionado + " - " + crmEncontrado;
+
+
+
+            alternarCarimboPeloCheckbox();
+
+
+
+        } else {
+
+
+
+            limparVinculoAnestesista();
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+    function alternarCarimboPeloCheckbox() {
+
+
+
+        const chkCarimbo = document.getElementById('chk_aplicar_carimbo');
+
+
+
+        const carimboDiv = document.getElementById('o-carimbo');
+
+
+
+        const nomeDigitado = document.getElementById('busca-anestesista').value;
+
+
+
+        
+
+
+
+        if (chkCarimbo.checked && crmsDoGrupo[nomeDigitado]) {
+
+
+
+            carimboDiv.style.display = 'block';
+
+
+
+        } else {
+
+
+
+            carimboDiv.style.display = 'none';
+
+
+
+        }
+
+
+
+        travarImpressao();
+
+
+
+    }
+
+
+
+
+
+
+
+    function limparVinculoAnestesista() {
+
+
+
+        document.getElementById('o-carimbo').style.display = 'none';
+
+
+
+        document.getElementById('texto-seguranca-anestesista').innerText = '';
+
+
+
+    }
+
+
+
+
+
+
+
+    document.getElementById('avaliacao-form').addEventListener('keydown', function(e) {
+
+
+
+        if (e.key === 'Enter' && e.target.tagName === 'INPUT' && !e.target.classList.contains('med-input') && e.target.id !== 'busca-anestesista') {
+
+
+
+            e.preventDefault();
+
+
+
+        }
+
+
+
+    });
+
+
+
+
+
+
+
+    function carregarDadosUrl() {
+
+
+
+        const p = new URLSearchParams(window.location.search);
+
+
+
+        p.forEach((valor, chave) => {
+
+
+
+            const el = document.getElementById(chave);
+
+
+
+            if (el) {
+
+
+
+                if (el.type === "radio" || el.type === "checkbox") {
+
+
+
+                    el.checked = (valor === "1");
+
+
+
+                } else {
+
+
+
+                    el.value = valor;
+
+
+
+                }
+
+
+
+            }
+
+
+
+        });
+
+
+
+        
+
+
+
+        const anestesistaSalvo = p.get('busca-anestesista');
+
+
+
+        if (anestesistaSalvo) {
+
+
+
+            atualizarDadosTextoAnestesista(anestesistaSalvo);
+
+
+
+        }
+
+
+
+
+
+
+
+        for (let i = 1; i <= totalComentariosInputs; i++) {
+
+
+
+            ajustarFonteLinha(document.getElementById("c" + i));
+
+
+
+        }
+
+
+
+        document.querySelectorAll('.med-input').forEach(el => ajustarFonteLinhaMed(el));
+
+
+
+        sincronizarEspelhoJejum();
+
+
+
+        aplicarMascaraCPF();
+
+
+
+    }
+
+
+
+</script>
+
+
+
+</body>
+
+
+
+</html>
+
+
+
