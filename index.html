@@ -598,81 +598,74 @@
 
 
 
-        .comentarios-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 4px; }
-
-
-
-        .comentario-item { display: flex; align-items: flex-start; border-bottom: 1px solid #ccc; margin-bottom: 0px; min-height: 16px; height: auto; }
-
-
-
-        .com_mirror { display: none; }
-
-        textarea.com_input {
-
-
-
-            resize: none;
-
-
-
-            overflow: hidden;
-
-
-
+        /* ---- Área de comentários estilo Word ---- */
+        .comentarios-freetext {
             width: 100%;
-
-
-
-            padding: 0px 1px;
-
-
-
+            height: 148px; /* altura fixa — não empurra o layout */
+            overflow: hidden; /* esconde se ultrapassar */
             border: none;
-
-
-
             background: transparent;
-
-
-
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-
-
             font-size: 12px;
-
-
-
             font-weight: 800;
-
-
-
             color: #000;
-
-
-
-            line-height: 1.3;
-
-
-
-            display: block;
-
-
-
+            line-height: 1.55;
             box-sizing: border-box;
-
-
-
             word-break: break-word;
-
-
-
             white-space: pre-wrap;
-
-
-
+            outline: none;
+            padding: 1px 0;
         }
+        .comentarios-print-mirror { display: none; }
+
+        /* ---- Área de Observações/Conduta estilo Word ---- */
+        .obs-freetext {
+            width: 100%;
+            height: 62px;
+            overflow: hidden;
+            border: none;
+            background: transparent;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            color: #000;
+            line-height: 1.55;
+            box-sizing: border-box;
+            word-break: break-word;
+            white-space: pre-wrap;
+            outline: none;
+            padding: 1px 0;
+        }
+        .obs-print-mirror { display: none; }
+
+        /* ---- Recomendações/Conduta estilo Word (substitui obs + recom) ---- */
+        /* wrapper com altura fixa — este nunca cresce */
+        .recom-wrapper {
+            width: 100%;
+            height: 235px;
+            overflow: hidden;
+            position: relative;
+        }
+        /* editor livre dentro do wrapper */
+        .recom-freetext {
+            width: 100%;
+            min-height: 100%;
+            border: none;
+            background: transparent;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            color: #000;
+            line-height: 1.45;
+            box-sizing: border-box;
+            word-break: break-word;
+            white-space: pre-wrap;
+            outline: none;
+            padding: 1px 0;
+        }
+        .recom-print-mirror { display: none; }
+
+
 
 
 
@@ -1598,9 +1591,9 @@
 
 
 
-            /* Comentários: na impressão esconde textarea e mostra mirror div */
-            textarea.com_input { display: none !important; }
-            .com_mirror {
+            /* Comentários e Obs: na impressão esconde editor e mostra mirror */
+            .comentarios-freetext { display: none !important; }
+            .comentarios-print-mirror {
                 display: block !important;
                 font-size: 11px !important;
                 font-weight: bold !important;
@@ -1611,13 +1604,23 @@
                 min-height: 14px !important;
                 padding: 0 !important;
                 background: transparent !important;
-                line-height: 1.3 !important;
+                line-height: 1.55 !important;
             }
-            .comentario-item {
-                height: auto !important;
-                min-height: 16px !important;
-                align-items: flex-start !important;
-                overflow: visible !important;
+            .obs-freetext { display: none !important; }
+            .obs-print-mirror { display: none !important; }
+            .recom-wrapper { height: auto !important; overflow: visible !important; }
+            .recom-freetext { display: none !important; }
+            .recom-print-mirror {
+                display: block !important;
+                font-weight: bold !important;
+                color: #000 !important;
+                white-space: pre-wrap !important;
+                word-break: break-word !important;
+                width: 100% !important;
+                min-height: 14px !important;
+                padding: 0 !important;
+                background: transparent !important;
+                /* font-size e line-height controlados pelo JS via style inline */
             }
 
 
@@ -2009,115 +2012,12 @@
 
 
             <div style="border-right: 1px solid #000; padding-right: 4px;">
-
-
-
                 <div class="section-title">COMENTAR DADOS POSITIVOS</div>
-
-
-
-                <div class="comentarios-cols">
-
-
-
-                    <div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c1" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c1_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c2" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c2_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c3" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c3_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c4" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c4_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c5" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c5_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c6" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c6_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c7" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c7_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c8" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c8_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c9" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c9_mirror"></div></div>
-
-
-
-                    </div>
-
-
-
-                    <div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c10" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c10_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c11" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c11_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c12" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c12_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c13" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c13_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c14" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c14_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c15" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c15_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c16" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c16_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c17" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c17_mirror"></div></div>
-
-
-
-                        <div class="comentario-item"><textarea class="com_input" id="c18" oninput="ajustarFonteLinha(this)" rows="1"></textarea><div class="com_mirror" id="c18_mirror"></div></div>
-
-
-
-                    </div>
-
-
-
-                </div>
-
-
-
+                <div id="comentarios-editor" contenteditable="true" spellcheck="false" class="comentarios-freetext" oninput="onComentariosInput()"></div>
+                <div id="comentarios-print" class="comentarios-print-mirror"></div>
             </div>
 
-
-
             <div>
-
 
 
                 <div class="section-title">MEDICAMENTOS EM USO</div>
@@ -2971,71 +2871,22 @@
 
 
 
-            <div style="margin-top:1px;">
 
-
-
-                <label style="font-weight:bold; font-size:9.5px;">Recomendações:</label>
-
-
-
-                <input type="text" id="concl_recom1" style="width:100%; margin-top:1px; display:block;">
-
-
-
-                <input type="text" id="concl_recom2" style="width:100%; margin-top:3px; display:block;">
-
-
-
-                <input type="text" id="concl_recom3" style="width:100%; margin-top:3px; display:block;">
-
-
-
+            <div style="margin-top:3px;">
+                <label style="font-weight:bold; font-size:11px;">Recomendações / Observações / Conduta:</label>
+                <div class="recom-wrapper" id="recom-wrapper">
+                <div id="recom-editor"
+                     contenteditable="true"
+                     spellcheck="false"
+                     class="recom-freetext"
+                     oninput="onRecomInput()"></div>
+                </div>
+                <div id="recom-print" class="recom-print-mirror"></div>
             </div>
 
-
-
         </div>
 
-
-
-
-
-
-
-        <div class="section">
-
-
-
-            <div class="section-title">OBSERVAÇÕES / CONDUTA</div>
-
-
-
-            <input type="text" id="obs1" style="width:100%; margin-top:1px; display:block;">
-
-
-
-            <input type="text" id="obs2" style="width:100%; margin-top:3px; display:block;">
-
-
-
-            <input type="text" id="obs3" style="width:100%; margin-top:3px; display:block;">
-
-
-
-            <input type="text" id="obs4" style="width:100%; margin-top:3px; display:block;">
-
-
-
-            <input type="text" id="obs5" style="width:100%; margin-top:3px; display:block;">
-
-
-
-        </div>
-
-
-
-
+        <div class="section" style="border:none; margin-top:5px; background:transparent;">
 
 
 
@@ -4889,13 +4740,11 @@
 
 
     function sincronizarMirrors() {
-        document.querySelectorAll('textarea.com_input').forEach(function(el) {
-            const mirror = document.getElementById(el.id + '_mirror');
-            if (mirror) {
-                mirror.textContent = el.value;
-                mirror.style.fontSize = el.style.fontSize || '12px';
-            }
-        });
+        sincronizarMirrorComentarios();
+        // Sincroniza recom mirror
+        const recomEditor = document.getElementById('recom-editor');
+        const recomMirror = document.getElementById('recom-print');
+        if (recomEditor && recomMirror) recomMirror.innerText = recomEditor.innerText || '';
     }
 
     function imprimirFicha() {
@@ -5279,243 +5128,142 @@
 
 
 
-    function comentarioAutomatico(numero, isChecked) {
-
-
-
-        const prefixoMarcador = numero + ". ";
-
-
-
-        let comentariosAtuais = [];
-
-
-
-        
-
-
-
-        for (let i = 1; i <= totalComentariosInputs; i++) {
-
-
-
-            let val = document.getElementById("c" + i).value.trim();
-
-
-
-            if (val !== "") {
-
-
-
-                comentariosAtuais.push(val);
-
-
-
-            }
-
-
-
-        }
-
-
-
-
-
-
-
-        let campoParaFocarId = null;
-
-
-
-
-
-
-
-        if (isChecked) {
-
-
-
-            let existe = comentariosAtuais.some(c => c.startsWith(prefixoMarcador));
-
-
-
-            if (!existe) {
-
-
-
-                comentariosAtuais.push(prefixoMarcador);
-
-
-
-            }
-
-
-
-        } else {
-
-
-
-            comentariosAtuais = comentariosAtuais.filter(c => !c.startsWith(prefixoMarcador));
-
-
-
-        }
-
-
-
-
-
-
-
-        comentariosAtuais.sort((a, b) => {
-
-
-
-            let numA = parseInt(a.split(".")[0]) || 0;
-
-
-
-            let numB = parseInt(b.split(".")[0]) || 0;
-
-
-
-            return numA - numB;
-
-
-
-        });
-
-
-
-
-
-
-
-        for (let i = 1; i <= totalComentariosInputs; i++) {
-
-
-
-            const inputElement = document.getElementById("c" + i);
-
-
-
-            const textoFinal = comentariosAtuais[i - 1] || "";
-
-
-
-            inputElement.value = textoFinal;
-
-
-
-            ajustarFonteLinha(inputElement);
-
-
-
-
-
-
-
-            if (isChecked && textoFinal === prefixoMarcador) {
-
-
-
-                campoParaFocarId = "c" + i;
-
-
-
-            }
-
-
-
-        }
-
-
-
-
-
-
-
-        if (campoParaFocarId) {
-
-
-
-            setTimeout(() => {
-
-
-
-                const elFoco = document.getElementById(campoParaFocarId);
-
-
-
-                elFoco.focus();
-
-
-
-                const pos = elFoco.value.length;
-
-
-
-                elFoco.setSelectionRange(pos, pos);
-
-
-
-            }, 50);
-
-
-
-        }
-
-
-
-
-
-
-
-        travarImpressao();
-
-
-
+    // ---- Área de comentários: modelo contenteditable ----
+
+    function getLinhasComentarios() {
+        const editor = document.getElementById('comentarios-editor');
+        if (!editor) return [];
+        // Coleta linhas do div contenteditable (cada <div> ou <br> é uma linha)
+        let texto = editor.innerText || '';
+        return texto.split('\n').map(l => l.trimEnd());
     }
 
+    function setLinhasComentarios(linhas) {
+        const editor = document.getElementById('comentarios-editor');
+        if (!editor) return;
+        editor.innerText = linhas.join('\n');
+        sincronizarMirrorComentarios();
+    }
 
+    function sincronizarMirrorComentarios() {
+        const editor = document.getElementById('comentarios-editor');
+        const mirror = document.getElementById('comentarios-print');
+        if (editor && mirror) {
+            mirror.innerText = editor.innerText || '';
+        }
+    }
 
+    function onComentariosInput() {
+        sincronizarMirrorComentarios();
+        travarImpressao();
+    }
 
+    function onObsInput() {
+        const obsEditor = document.getElementById('obs-editor');
+        const obsMirror = document.getElementById('obs-print');
+        if (obsEditor && obsMirror) obsMirror.innerText = obsEditor.innerText || '';
+        travarImpressao();
+    }
 
+    function onRecomInput() {
+        const editor  = document.getElementById('recom-editor');
+        const wrapper = document.getElementById('recom-wrapper');
+        const mirror  = document.getElementById('recom-print');
+        if (!editor || !wrapper || !mirror) return;
 
+        const FONT_MAX = 12;
+        const FONT_MIN = 8.5;
+        const LH_MAX   = 1.45;
+        const LH_MIN   = 1.05;
+
+        // BOX_H = altura fixa do WRAPPER (nunca muda)
+        const BOX_H = wrapper.clientHeight;
+
+        // Reseta para máximo antes de medir
+        let fs = FONT_MAX;
+        let lh = LH_MAX;
+        editor.style.fontSize   = fs + 'px';
+        editor.style.lineHeight = lh;
+
+        // Reduz até caber no wrapper ou atingir mínimo
+        while (editor.scrollHeight > BOX_H) {
+            if (lh > LH_MIN) {
+                lh = Math.max(LH_MIN, +(lh - 0.05).toFixed(3));
+            } else if (fs > FONT_MIN) {
+                fs = Math.max(FONT_MIN, +(fs - 0.25).toFixed(3));
+            } else {
+                break; // chegou no mínimo — para (overflow oculto pelo wrapper)
+            }
+            editor.style.fontSize   = fs + 'px';
+            editor.style.lineHeight = lh;
+        }
+
+        mirror.style.fontSize   = fs + 'px';
+        mirror.style.lineHeight = lh;
+        mirror.innerText = editor.innerText || '';
+        travarImpressao();
+    }
+
+    function comentarioAutomatico(numero, isChecked) {
+        const prefixoMarcador = numero + '. ';
+        let linhas = getLinhasComentarios().filter(l => l.trim() !== '');
+
+        if (isChecked) {
+            let existe = linhas.some(l => l.startsWith(prefixoMarcador));
+            if (!existe) {
+                linhas.push(prefixoMarcador);
+            }
+        } else {
+            linhas = linhas.filter(l => !l.startsWith(prefixoMarcador));
+        }
+
+        // Ordena numericamente
+        linhas.sort((a, b) => {
+            let numA = parseInt(a.split('.')[0]) || 0;
+            let numB = parseInt(b.split('.')[0]) || 0;
+            return numA - numB;
+        });
+
+        setLinhasComentarios(linhas);
+
+        if (isChecked) {
+            // Move cursor para o fim da linha do item adicionado
+            setTimeout(() => {
+                const editor = document.getElementById('comentarios-editor');
+                if (!editor) return;
+                editor.focus();
+                const sel = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(editor);
+                range.collapse(false);
+                sel.removeAllRanges();
+                sel.addRange(range);
+            }, 50);
+        }
+
+        travarImpressao();
+    }
 
     function ajustarFonteLinha(el) {
+        // Mantida para compatibilidade com outros campos que ainda a usem
         if (!el) return;
-
-        // Reseta para medir corretamente
-        el.style.height = "auto";
-        el.style.fontSize = "12px";
+        el.style.height = 'auto';
+        el.style.fontSize = '12px';
         let fontSize = 12;
-
-        // Diminui fonte enquanto o conteúdo ultrapassar a largura (linha única)
         el.rows = 1;
         while (el.scrollWidth > el.clientWidth && fontSize > 9.5) {
             fontSize -= 0.5;
-            el.style.fontSize = fontSize + "px";
+            el.style.fontSize = fontSize + 'px';
         }
-
-        // Se mesmo na menor fonte ainda transbordar, ativa quebra de linha
-        el.style.whiteSpace = "pre-wrap";
-        el.style.height = "auto";
-        el.style.height = el.scrollHeight + "px";
-
-        // Sincroniza o div espelho (usado na impressão)
-        const mirror = document.getElementById(el.id + "_mirror");
+        el.style.whiteSpace = 'pre-wrap';
+        el.style.height = 'auto';
+        el.style.height = el.scrollHeight + 'px';
+        const mirror = document.getElementById(el.id + '_mirror');
         if (mirror) {
             mirror.textContent = el.value;
-            mirror.style.fontSize = el.style.fontSize || "12px";
+            mirror.style.fontSize = el.style.fontSize || '12px';
         }
     }
-
-
-
-
-
-
 
     function ajustarFonteLinhaMed(el) {
 
@@ -5977,15 +5725,7 @@
 
 
 
-        for (let i = 1; i <= totalComentariosInputs; i++) {
-
-
-
-            ajustarFonteLinha(document.getElementById("c" + i));
-
-
-
-        }
+        sincronizarMirrorComentarios();
 
 
 
