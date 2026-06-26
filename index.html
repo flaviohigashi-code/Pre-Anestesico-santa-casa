@@ -2296,7 +2296,7 @@
 
 
 
-                        <b style="font-size:9px;">Provável VAD</b>
+                        <b style="font-size:9px;">Possib. VAD</b>
 
 
 
@@ -2314,7 +2314,20 @@
 
                 </tr>
 
-
+                <tr>
+                    <td style="border:1px solid #999; padding:1px 4px; white-space:nowrap;">
+                        <b style="font-size:9px;">IMC</b>
+                        <span id="ef_imc" style="font-size:11px; font-weight:800; margin-left:3px;">—</span>
+                    </td>
+                    <td style="border:1px solid #999; padding:1px 4px; white-space:nowrap;">
+                        <b style="font-size:9px;">IBW</b>
+                        <span id="ef_ibw" style="font-size:11px; font-weight:800; margin-left:3px;">—</span>
+                    </td>
+                    <td colspan="6" style="border:1px solid #999; padding:1px 4px; white-space:nowrap;">
+                        <b style="font-size:9px;">ABW</b>
+                        <span id="ef_abw" style="font-size:11px; font-weight:800; margin-left:3px;">—</span>
+                    </td>
+                </tr>
 
                 <tr>
 
@@ -3532,7 +3545,7 @@
 
         configurarMascaraCPF();
 
-
+        configurarIMC();
 
     }
 
@@ -3541,6 +3554,66 @@
 
 
 
+
+    function configurarIMC() {
+        function calcularIMC() {
+            var pesoStr = document.getElementById('ef_peso').value.trim();
+            var altStr  = document.getElementById('ef_altura').value.trim().replace(',','.');
+            var elIMC   = document.getElementById('ef_imc');
+            var elIBW   = document.getElementById('ef_ibw');
+            var elABW   = document.getElementById('ef_abw');
+
+            var peso = parseFloat(pesoStr);
+            var alt  = parseFloat(altStr);
+
+            // aceita altura em cm (ex: 170) ou metros (ex: 1.70)
+            if (alt > 3) alt = alt / 100;
+
+            if (!peso || !alt || alt < 0.5 || alt > 2.5 || peso < 20 || peso > 300) {
+                elIMC.textContent = '—';
+                elIBW.textContent = '—';
+                elABW.textContent = '—';
+                return;
+            }
+
+            // IMC
+            var imc = peso / (alt * alt);
+            elIMC.textContent = imc.toFixed(1);
+
+            // Classificação OMS — usada internamente para ABW, sem exibir
+            var cls = '';
+            if      (imc < 18.5) cls = 'Baixo peso';
+            else if (imc < 25)   cls = 'Eutrófico';
+            else if (imc < 30)   cls = 'Sobrepeso';
+            else if (imc < 35)   cls = 'Obesidade I';
+            else if (imc < 40)   cls = 'Obesidade II';
+            else                 cls = 'Obesidade III';
+
+            // IBW — fórmula de Devine (anestesia/UTI)
+            // IBW — fórmula de Broca (altura cm − 100)
+            var altCm = alt * 100;
+            var ibw = altCm - 100;
+            if (ibw < 30) ibw = 30;
+            elIBW.textContent = ibw.toFixed(0);
+
+            // ABW — peso ajustado (usado quando IMC > 30)
+            if (imc >= 30) {
+                var abw = ibw + 0.4 * (peso - ibw);
+                elABW.textContent = abw.toFixed(1);
+            } else {
+                elABW.textContent = '=IBW';
+            }
+        }
+
+        document.getElementById('ef_peso').addEventListener('input', calcularIMC);
+        document.getElementById('ef_altura').addEventListener('input', calcularIMC);
+
+        // recalcula se sexo for alterado
+        ['sexo_m','sexo_f','pac_sexo_m','pac_sexo_f'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.addEventListener('change', calcularIMC);
+        });
+    }
 
     function definirData() { 
 
