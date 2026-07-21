@@ -3784,26 +3784,44 @@
     function buscarValorPorLabel(linhas, labels) {
         for (let i = 0; i < linhas.length; i++) {
             for (const label of labels) {
-                const regex = new RegExp('^' + label + '\\s*[:\\-]?\\s*(.*)$', 'i');
-                const m = linhas[i].match(regex);
-                if (m) {
-                    if (m[1] && m[1].trim().length > 0) return m[1].trim();
-                    if (linhas[i + 1] && linhas[i + 1].trim().length > 0) return linhas[i + 1].trim();
-                }
+                const linha = linhas[i];
+                // valor na mesma linha, exige ':' ou '-' logo após o rótulo
+                // (evita casar "Nome social/afetivo" quando o rótulo é "Nome")
+                const mesmaLinha = linha.match(new RegExp('^' + label + '\\s*[:\\-]\\s*(.+)$', 'i'));
+                if (mesmaLinha && mesmaLinha[1].trim()) return mesmaLinha[1].trim();
+                // rótulo sozinho na linha (sem texto colado depois) -> valor na linha seguinte
+                const rotuloSozinho = linha.match(new RegExp('^' + label + '\\s*[:\\-]?\\s*$', 'i'));
+                if (rotuloSozinho && linhas[i + 1]) return linhas[i + 1].trim();
             }
         }
         return '';
+    }
+
+    function pareceNomeDePessoa(linha) {
+        if (!linha) return false;
+        const texto = linha.trim();
+        if (texto.length < 4 || texto.length > 60) return false;
+        if (/\d/.test(texto)) return false;
+        if (/[:\/]/.test(texto)) return false;
+        // rótulos do Tasy que não são nome de paciente
+        const rotulosExcluidos = /^(atendimento|prontu[aá]rio|sexo|convênio|convenio|plano|cpf|nascimento|idade|setor|leito|data|nacionalidade|religi[aã]o|estado civil|cirurgia|cirurgi[aã]o|m[eé]dico|paciente|centro|unidade|nome)\b/i;
+        if (rotulosExcluidos.test(texto)) return false;
+        const palavras = texto.split(/\s+/);
+        if (palavras.length < 2) return false;
+        return palavras.every(p => /^[A-Za-zÀ-ÖØ-öø-ÿ.'\-]+$/.test(p));
     }
 
     function extrairDadosPaciente(texto) {
         const linhas = texto.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
         const dados = { nome: '', idade: '', convenio: '', cpf: '' };
 
-        // Nome (rótulos comuns do Tasy: "Paciente" ou "Nome")
-        let nome = buscarValorPorLabel(linhas, ['Paciente', 'Nome']);
-        if (nome) {
-            nome = nome.replace(/\s+/g, ' ').trim();
-            dados.nome = nome;
+        // Nome: no bloco copiado do Tasy a 1ª linha costuma ser o nome do paciente;
+        // só usamos rótulo ("Paciente"/"Nome") como alternativa se a 1ª linha não parecer nome
+        if (pareceNomeDePessoa(linhas[0])) {
+            dados.nome = linhas[0].replace(/\s+/g, ' ').trim();
+        } else {
+            const nome = buscarValorPorLabel(linhas, ['Paciente', 'Nome']);
+            if (pareceNomeDePessoa(nome)) dados.nome = nome.replace(/\s+/g, ' ').trim();
         }
 
         // CPF - procura o padrão em qualquer parte do texto
@@ -3828,9 +3846,15 @@
             }
         }
 
-        // Convênio
+        // Convênio - o Tasy costuma grudar código/validade depois do nome do plano
+        // (ex: "Unimed Nacional / Cód: 0865... Val: 01/01/2027"), então cortamos nesses marcadores
         let convenio = buscarValorPorLabel(linhas, ['Convênio', 'Convenio', 'Plano de saúde', 'Plano de saude', 'Plano']);
-        if (convenio) dados.convenio = convenio.replace(/\s+/g, ' ').trim();
+        if (convenio) {
+            convenio = convenio.split(/\s*\/\s*|\bC[oó]d\.?:?|\bVal\.?:?/i)[0];
+            convenio = convenio.replace(/\d{3,}/g, '').trim();
+            convenio = convenio.replace(/\s+/g, ' ').trim();
+            dados.convenio = convenio;
+        }
 
         return dados;
     }
