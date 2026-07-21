@@ -1848,6 +1848,7 @@
 
 
                 <button type="button" class="btn-uncheck-no" onclick="desmarcarTodosNo()">Desmarcar todos os "Não"</button>
+                <button type="button" class="btn-uncheck-no" style="background:#c0392b; margin-left:6px;" onclick="limparFichaCompleta()">🗑 Limpar ficha</button>
 
 
 
@@ -2112,7 +2113,7 @@
 
 
 
-                        <label style="margin-left:1px;"><input type="radio" name="anticoag" id="ac_nao"><span class="btn-check"></span> Não</label>
+                        <label style="margin-left:1px;"><input type="radio" name="anticoag" id="ac_nao" checked><span class="btn-check"></span> Não</label>
 
 
 
@@ -2132,7 +2133,7 @@
 
 
 
-                        <label style="margin-left:1px;"><input type="radio" name="alergia" id="al_nao"><span class="btn-check"></span> Não</label>
+                        <label style="margin-left:1px;"><input type="radio" name="alergia" id="al_nao" checked><span class="btn-check"></span> Não</label>
 
 
 
@@ -2244,7 +2245,7 @@
 
 
 
-                        <label style="margin-left:1px;"><input type="radio" name="temp" id="tp_afebril"><span class="btn-check"></span> Afeb</label>
+                        <label style="margin-left:1px;"><input type="radio" name="temp" id="tp_afebril" checked><span class="btn-check"></span> Afeb</label>
 
 
 
@@ -2280,7 +2281,7 @@
 
 
 
-                        <label style="margin-left:1px;"><input type="radio" name="dem_medida" id="dem_maior"><span class="btn-check"></span> &gt;12</label>
+                        <label style="margin-left:1px;"><input type="radio" name="dem_medida" id="dem_maior" checked><span class="btn-check"></span> &gt;12</label>
 
 
 
@@ -2296,7 +2297,7 @@
 
 
 
-                        <b style="font-size:9px;">Possib. VAD</b>
+                        <b style="font-size:9px;">Dif. Intubação</b>
 
 
 
@@ -2304,7 +2305,7 @@
 
 
 
-                        <label style="margin-left:2px;"><input type="radio" name="dif_intub" id="df_nao"><span class="btn-check"></span> Não</label>
+                        <label style="margin-left:2px;"><input type="radio" name="dif_intub" id="df_nao" checked><span class="btn-check"></span> Não</label>
 
 
 
@@ -2341,7 +2342,7 @@
 
 
 
-                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_coluna_sp"><span class="btn-check"></span>SP</label>
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_coluna_sp" checked><span class="btn-check"></span>SP</label>
 
 
 
@@ -2361,7 +2362,7 @@
 
 
 
-                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_acesso_bom"><span class="btn-check"></span>BOM</label>
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_acesso_bom" checked><span class="btn-check"></span>BOM</label>
 
 
 
@@ -2381,7 +2382,7 @@
 
 
 
-                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_abdomen_sp"><span class="btn-check"></span>SP</label>
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_abdomen_sp" checked><span class="btn-check"></span>SP</label>
 
 
 
@@ -2409,7 +2410,7 @@
 
 
 
-                        <label style="margin-left:1px;"><input type="radio" name="resp" id="rp_livres"><span class="btn-check"></span> CPP Livres</label>
+                        <label style="margin-left:1px;"><input type="radio" name="resp" id="rp_livres" checked><span class="btn-check"></span> CPP Livres</label>
 
 
 
@@ -2433,7 +2434,7 @@
 
 
 
-                        <label style="margin-left:1px;"><input type="radio" name="cardio" id="cd_brnf"><span class="btn-check"></span> BRNF</label>
+                        <label style="margin-left:1px;"><input type="radio" name="cardio" id="cd_brnf" checked><span class="btn-check"></span> BRNF</label>
 
 
 
@@ -2465,7 +2466,7 @@
 
 
 
-                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_membros_sp"><span class="btn-check"></span>SP</label>
+                        <label style="margin-left:2px; font-size:9px; font-weight:bold;"><input type="checkbox" id="ef_membros_sp" checked><span class="btn-check"></span>SP</label>
 
 
 
@@ -2777,7 +2778,7 @@
 
 
 
-                    <input type="text" id="linha_jejum_completa" value="Orientado a permanecer em JEJUM pré-operatório de 8 horas para alimentos e de 2 horas para água, água de coco e isotônicos.">
+                    <input type="text" id="linha_jejum_completa" value="Orientado a permanecer em JEJUM pré-operatório de 8 horas para alimentos e de 4 horas para água, água de coco e isotônicos.">
 
 
 
@@ -3215,7 +3216,7 @@
 
 
 
-        "Orientado a permanecer em JEJUM pré-operatório de 8 horas para alimentos e de 2 horas para água, água de coco e isotônicos.",
+        "Orientado a permanecer em JEJUM pré-operatório de 8 horas para alimentos e de 4 horas para água, água de coco e isotônicos.",
 
 
 
@@ -3640,45 +3641,50 @@
 
 
     function desmarcarTodosNo() {
-
-
-
         for (let i = 1; i <= 24; i++) {
-
-
-
             const elNo = document.getElementById("d" + i + "_n");
-
-
-
-            if (elNo && elNo.checked) {
-
-
-
-                elNo.checked = false;
-
-
-
-            }
-
-
-
+            if (elNo && elNo.checked) elNo.checked = false;
         }
-
-
-
+        // Desmarcar todos os extras
+        ['ac_nao','al_nao','tp_afebril','dem_maior','rp_livres','cd_brnf','df_nao'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.checked = false;
+        });
+        ['ef_coluna_sp','ef_acesso_bom','ef_abdomen_sp','ef_membros_sp'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.checked = false;
+        });
         travarImpressao();
-
-
-
     }
 
+    function limparFichaCompleta() {
+        if (!confirm('Apagar todos os dados e voltar ao estado inicial?')) return;
 
+        // Reset geral do formulário
+        document.getElementById('avaliacao-form').reset();
 
+        // Limpar contenteditable
+        ['comentarios-editor','recom-editor'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.innerText = '';
+        });
+        ['comentarios-print','recom-print'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.innerText = '';
+        });
 
+        // Restaurar defaults
+        ['ac_nao','al_nao','tp_afebril','dem_maior','rp_livres','cd_brnf','df_nao'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.checked = true;
+        });
+        ['ef_coluna_sp','ef_acesso_bom','ef_abdomen_sp','ef_membros_sp'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.checked = true;
+        });
 
+        // Restaurar data, mirrors e anestesista
+        definirData();
+        sincronizarMirrorComentarios();
+        sincronizarEspelhoJejum();
+        limparVinculoAnestesista();
 
-
+        travarImpressao();
+    }
     function sincronizarEspelhoJejum() {
 
 
