@@ -344,6 +344,65 @@
 
         }
 
+        .btn-colar-dados {
+            background-color: #6a1b9a;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 2px 7px;
+            font-size: 9px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        .btn-colar-dados:hover { background-color: #4a148c; }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.aberto { display: flex; }
+        .modal-box {
+            background: #fff;
+            border-radius: 6px;
+            padding: 16px 18px;
+            width: 90%;
+            max-width: 480px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .modal-box h3 { margin: 0 0 6px 0; font-size: 15px; }
+        .modal-box p { font-size: 11px; color: #555; margin: 4px 0 8px 0; }
+        .modal-box textarea {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 12px;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .modal-preview { margin-top: 10px; }
+        .modal-preview .form-group { margin-bottom: 6px; }
+        .modal-preview .form-group label { width: 90px; flex-shrink: 0; }
+        .modal-preview input[type="text"] { width: 100%; }
+        .modal-btn-row { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .modal-btn-row button {
+            border: none; border-radius: 4px; padding: 6px 12px;
+            font-size: 12px; font-weight: bold; cursor: pointer; color: #fff;
+        }
+        .btn-modal-identificar { background-color: #1565c0; }
+        .btn-modal-confirmar { background-color: #2e7d32; }
+        .btn-modal-cancelar { background-color: #78909c; }
+        .modal-aviso { font-size: 10.5px; color: #b71c1c; margin-top: 6px; }
+
 
 
 
@@ -1783,7 +1842,7 @@
 
 
 
-                <div class="form-group" style="width: 70%;"><label>Nome:</label><input type="text" id="nome_paciente"></div>
+                <div class="form-group" style="width: 70%;"><label>Nome:</label><input type="text" id="nome_paciente"><button type="button" class="btn-colar-dados" onclick="abrirModalColar()">📋 Colar dados do Tasy</button></div>
 
 
 
@@ -1827,6 +1886,29 @@
 
 
 
+        </div>
+
+        <div id="modal-colar-dados" class="modal-overlay">
+            <div class="modal-box">
+                <h3>📋 Colar dados do paciente</h3>
+                <p>No Tasy, selecione o bloco com os dados do paciente (nome, idade, convênio, CPF...), copie (Ctrl+C) e cole aqui (Ctrl+V):</p>
+                <textarea id="colar-dados-texto" rows="6" placeholder="Cole aqui o texto copiado do Tasy..."></textarea>
+                <div class="modal-btn-row">
+                    <button type="button" class="btn-modal-identificar" onclick="processarColagem()">🔍 Identificar dados</button>
+                    <button type="button" class="btn-modal-cancelar" onclick="fecharModalColar()">Cancelar</button>
+                </div>
+                <div id="colar-dados-preview" class="modal-preview" style="display:none;">
+                    <p style="margin-top:12px;"><strong>Confira e corrija se necessário antes de preencher:</strong></p>
+                    <div class="form-group"><label>Nome:</label><input type="text" id="preview-nome"></div>
+                    <div class="form-group"><label>Idade:</label><input type="text" id="preview-idade"></div>
+                    <div class="form-group"><label>Convênio:</label><input type="text" id="preview-convenio"></div>
+                    <div class="form-group"><label>CPF (4 díg.):</label><input type="text" id="preview-cpf" maxlength="4"></div>
+                    <div class="modal-aviso" id="colar-dados-aviso" style="display:none;"></div>
+                    <div class="modal-btn-row">
+                        <button type="button" class="btn-modal-confirmar" onclick="confirmarPreenchimento()">✅ Preencher ficha</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -3685,6 +3767,111 @@
 
         travarImpressao();
     }
+
+    // ===== Colar dados do Tasy =====
+
+    function abrirModalColar() {
+        document.getElementById('modal-colar-dados').classList.add('aberto');
+        document.getElementById('colar-dados-texto').value = '';
+        document.getElementById('colar-dados-preview').style.display = 'none';
+        document.getElementById('colar-dados-texto').focus();
+    }
+
+    function fecharModalColar() {
+        document.getElementById('modal-colar-dados').classList.remove('aberto');
+    }
+
+    function buscarValorPorLabel(linhas, labels) {
+        for (let i = 0; i < linhas.length; i++) {
+            for (const label of labels) {
+                const regex = new RegExp('^' + label + '\\s*[:\\-]?\\s*(.*)$', 'i');
+                const m = linhas[i].match(regex);
+                if (m) {
+                    if (m[1] && m[1].trim().length > 0) return m[1].trim();
+                    if (linhas[i + 1] && linhas[i + 1].trim().length > 0) return linhas[i + 1].trim();
+                }
+            }
+        }
+        return '';
+    }
+
+    function extrairDadosPaciente(texto) {
+        const linhas = texto.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        const dados = { nome: '', idade: '', convenio: '', cpf: '' };
+
+        // Nome (rótulos comuns do Tasy: "Paciente" ou "Nome")
+        let nome = buscarValorPorLabel(linhas, ['Paciente', 'Nome']);
+        if (nome) {
+            nome = nome.replace(/\s+/g, ' ').trim();
+            dados.nome = nome;
+        }
+
+        // CPF - procura o padrão em qualquer parte do texto
+        const cpfMatch = texto.match(/(\d{3}\.?\d{3}\.?\d{3}-?\d{2})/);
+        if (cpfMatch) {
+            dados.cpf = cpfMatch[1].replace(/\D/g, '').substring(0, 4);
+        }
+
+        // Idade - procura "NN anos"; se não achar, tenta calcular pela data de nascimento
+        const idadeMatch = texto.match(/(\d{1,3})\s*anos/i);
+        if (idadeMatch) {
+            dados.idade = idadeMatch[1];
+        } else {
+            const nascMatch = texto.match(/\b(\d{2})\/(\d{2})\/(\d{4})\b/);
+            if (nascMatch) {
+                const nasc = new Date(parseInt(nascMatch[3]), parseInt(nascMatch[2]) - 1, parseInt(nascMatch[1]));
+                const hoje = new Date();
+                let idade = hoje.getFullYear() - nasc.getFullYear();
+                const diffMes = hoje.getMonth() - nasc.getMonth();
+                if (diffMes < 0 || (diffMes === 0 && hoje.getDate() < nasc.getDate())) idade--;
+                if (idade > 0 && idade < 130) dados.idade = String(idade);
+            }
+        }
+
+        // Convênio
+        let convenio = buscarValorPorLabel(linhas, ['Convênio', 'Convenio', 'Plano de saúde', 'Plano de saude', 'Plano']);
+        if (convenio) dados.convenio = convenio.replace(/\s+/g, ' ').trim();
+
+        return dados;
+    }
+
+    function processarColagem() {
+        const texto = document.getElementById('colar-dados-texto').value;
+        if (!texto.trim()) {
+            alert('Cole o texto copiado do Tasy antes de identificar.');
+            return;
+        }
+        const dados = extrairDadosPaciente(texto);
+
+        document.getElementById('preview-nome').value = dados.nome;
+        document.getElementById('preview-idade').value = dados.idade;
+        document.getElementById('preview-convenio').value = dados.convenio;
+        document.getElementById('preview-cpf').value = dados.cpf;
+
+        const avisoEl = document.getElementById('colar-dados-aviso');
+        const faltando = [];
+        if (!dados.nome) faltando.push('nome');
+        if (!dados.idade) faltando.push('idade');
+        if (!dados.convenio) faltando.push('convênio');
+        if (!dados.cpf) faltando.push('CPF');
+        if (faltando.length > 0) {
+            avisoEl.textContent = '⚠️ Não consegui identificar: ' + faltando.join(', ') + '. Preencha manualmente antes de confirmar.';
+            avisoEl.style.display = 'block';
+        } else {
+            avisoEl.style.display = 'none';
+        }
+
+        document.getElementById('colar-dados-preview').style.display = 'block';
+    }
+
+    function confirmarPreenchimento() {
+        document.getElementById('nome_paciente').value = document.getElementById('preview-nome').value.trim();
+        document.getElementById('idade_paciente').value = document.getElementById('preview-idade').value.trim();
+        document.getElementById('convenio_paciente').value = document.getElementById('preview-convenio').value.trim();
+        document.getElementById('cpf_paciente').value = document.getElementById('preview-cpf').value.trim();
+        fecharModalColar();
+    }
+
     function sincronizarEspelhoJejum() {
 
 
